@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/bt_switch2floatingwindow"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:fb_borderColor="#fdfdfd"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_focusColor="#a1a1a1"
+        fancy:fb_fontIconResource="&#xf054;"
+        fancy:fb_iconPosition="right"
+        fancy:fb_radius="0dp"
+        fancy:fb_text="开启悬浮窗"
+        fancy:fb_textColor="#000000"
+        fancy:fb_ghost="true"/>
+</LinearLayout>

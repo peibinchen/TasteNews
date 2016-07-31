@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <attr name="fromDegrees" format="float|reference"/>
+    <attr name="toDegrees" format="float|reference"/>
+    <attr name="childSize" format="dimension|reference"/>
+
+
+    <declare-styleable name="ArcLayout">
+        <attr name="fromDegrees"/>
+        <attr name="toDegrees"/>
+        <attr name="childSize"/>
+    </declare-styleable>
+</resources>

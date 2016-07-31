@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:theme="@android:style/Theme.Black.NoTitleBar"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/guide"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    >
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        android:hint="账号"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:background="#00000000"
+        />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:padding="10dp"
+        android:layout_marginBottom="40dp"
+        android:hint="密码"
+        android:gravity="center"
+        android:background="#00000000"
+        android:inputType="numberPassword"
+        />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/bt_login"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:fb_borderColor="#fdfdfd"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_focusColor="#39a3ef"
+        fancy:fb_fontIconResource="&#xf054;"
+        fancy:fb_iconPosition="right"
+        fancy:fb_radius="0dp"
+        fancy:fb_text="登录"
+        fancy:fb_textColor="#ffffff"
+        fancy:fb_ghost="true"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/bt_register"
+        android:layout_margin="10dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:fb_borderColor="#fdfdfd"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_focusColor="#39a3ef"
+        fancy:fb_fontIconResource="&#xf054;"
+        fancy:fb_iconPosition="right"
+        fancy:fb_radius="0dp"
+        fancy:fb_text="注册"
+        fancy:fb_textColor="#ffffff"
+        fancy:fb_ghost="true"/>
+
+    <ProgressBar
+        android:id="@+id/progress_guide"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+</LinearLayout>

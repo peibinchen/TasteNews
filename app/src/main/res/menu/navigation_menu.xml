@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_news"
+            android:checked="true"
+            android:icon="@mipmap/ic_assessment_white_24dp"
+            android:title="@string/navigation_news"/>
+        <item
+            android:id="@+id/navigation_item_weather"
+            android:icon="@mipmap/ic_date_range_white_24dp"
+            android:title="@string/navigation_weather"/>
+        <item
+            android:id="@+id/navigation_item_images"
+            android:icon="@mipmap/ic_image_white_24dp"
+            android:title="@string/navigation_images"/>
+    </group>
+
+    <item android:title="@string/cofig">
+        <menu>
+            <item
+                android:id="@+id/navigation_item_floating"
+                android:icon="@mipmap/floating_open"
+                android:title="@string/floating_switch"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/navigation_item_about"
+                android:icon="@mipmap/ic_portrait_white_24dp"
+                android:title="@string/navigation_about"
+                android:checkable="true"/>
+        </menu>
+    </item>
+</menu>

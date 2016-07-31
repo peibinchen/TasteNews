@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">TasteNews</string>
+    <string name="action_setting">Setting</string>
+    <string name="name">看些什么</string>
+    <string name="navigation_news">新闻</string>
+    <string name="navigation_weather">天气</string>
+    <string name="navigation_about">关于</string>
+    <string name="navigation_images">图片</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+
+    <string name="app_description">本APP采用Material Design以及MVP设计模式在项目中的使用</string>
+    <string name="app_github_url">APP引用资源：今日头条数据，百度定位，天气预报</string>
+    <string name="author">参考大牛：Lauren</string>
+    <string name="email">我的邮箱：1198960858@qq.com</string>
+    <string name="blog">我的博客：to be done</string>
+
+    <string name="top">头条</string>
+    <string name="nba">NBA</string>
+    <string name="cars">汽车</string>
+    <string name="jokes">笑话</string>
+
+    <string name="jingxuan">精选</string>
+    <string name="qutu">趣图</string>
+    <string name="meitu">美图</string>
+    <string name="story">故事</string>
+
+    <string name="load_fail">加载数据失败!</string>
+    <string name="title_activity_news_detail">NewsDetailActivity</string>
+
+    <string name="image_hit">一次只加载20条，查看更多内容请刷新哦。</string>
+
+    <string name="login_fail">登录失败，请检查自己的用户名和密码！</string>
+
+    <string name="register_success">注册成功！</string>
+    <string name="register_failure">注册失败，请重试！</string>
+
+    <string name="jump_to_news">查看更多。。。</string>
+
+    <string name="cofig">设置</string>
+    <string name="floating_switch">悬浮窗模式</string>
+</resources>
+
