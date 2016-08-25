@@ -3,12 +3,9 @@ package com.example.asus.tastenews.head.model;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Handler;
 import android.provider.MediaStore;
 
 import com.example.asus.tastenews.application.NewsApplication;
-import com.example.asus.tastenews.common.Urls;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;

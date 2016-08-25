@@ -46,4 +46,23 @@
         android:layout_height="wrap_content"
         android:text="@string/blog" />
 
+    <Button
+        android:id="@+id/server_bt"
+        android:text="服务器"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/client_bt"
+        android:text="客户端"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/progress_wait"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
 </LinearLayout>

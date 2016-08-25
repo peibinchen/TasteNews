@@ -28,7 +28,8 @@ public class Urls {
     public static final String NBA_ID = "T1348649145984";
 
     // 图片
-    public static final String IMAGES_URL = "http://api.laifudao.com/open/tupian.json";
+//    public static final String IMAGES_URL = "http://api.laifudao.com/open/tupian.json";
+    public static final String IMAGES_URL = "http://route.showapi.com/107-33";
 
     // 天气预报url
     public static final String WEATHER = "http://wthrcdn.etouch.cn/weather_mini?city=";

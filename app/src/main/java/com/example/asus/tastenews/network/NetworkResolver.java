@@ -1,6 +1,6 @@
 package com.example.asus.tastenews.network;
 
-import com.example.asus.tastenews.beans.WechatIInfoBean;
+import com.example.asus.tastenews.beans.WeatherBeanPackage.WeatherBean;
 import com.example.asus.tastenews.utils.LogUtils;
 
 import java.util.Map;
@@ -14,6 +14,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * 目前已经将网络上的数据通过Retrofit+RxJava取下来了，wonderful！
+ * 应用于天气请求中
  */
 
 
@@ -28,7 +29,7 @@ public class NetworkResolver {
         service.loadNews(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<WechatIInfoBean>() {
+                .subscribe(new Subscriber<WeatherBean>() {
                     @Override
                     public void onCompleted() {
                         LogUtils.d("RETR","onCompleted is done");
@@ -41,15 +42,14 @@ public class NetworkResolver {
                     }
 
                     @Override
-                    public void onNext(WechatIInfoBean newsBean) {
-                        LogUtils.d("RETROFIT","json is " + newsBean.getResult().getList().get(0).getTitle());
+                    public void onNext(WeatherBean newsBean) {
                         callback.onSuccess(newsBean);
                     }
                 });
     }
 
     public static abstract class Callback{
-        public abstract void onSuccess(WechatIInfoBean object);
+        public abstract void onSuccess(Object object);
         public abstract void onFailure(Throwable e);
     }
 }

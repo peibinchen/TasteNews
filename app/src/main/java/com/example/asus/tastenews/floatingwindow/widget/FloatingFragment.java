@@ -1,6 +1,5 @@
 package com.example.asus.tastenews.floatingwindow.widget;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.asus.tastenews.R;
 
@@ -23,7 +21,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
  */
 public class FloatingFragment extends Fragment {
 
-    private FloatingNewsService mService;
+    private NewsTagService mService;
     private Intent mServiceIntent;
     private ServiceConnection mConnection;
     private Context mContext;
@@ -54,12 +52,12 @@ public class FloatingFragment extends Fragment {
     }
 
     private void bindService(){
-        mServiceIntent = new Intent(mContext,FloatingNewsService.class);
+        mServiceIntent = new Intent(mContext,NewsTagService.class);
         if(mConnection == null){
             mConnection = new ServiceConnection() {
                 @Override
                 public void onServiceConnected(ComponentName name, IBinder service) {
-                    mService = ((FloatingNewsService.FloatingNewsBinder)service).getService();
+                    mService = ((NewsTagService.FloatingNewsBinder)service).getService();
                 }
 
                 @Override

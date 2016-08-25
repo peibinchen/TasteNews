@@ -69,7 +69,11 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
             ((ItemViewHolder)holder).mTitle.setText(news.getTitle());
             ((ItemViewHolder)holder).mDesc.setText(news.getDigest());
-            ImageLoaderUtils.display(mContext,((ItemViewHolder)holder).mNewsImg,news.getImgsrc());
+            if(news.getImgsrc() == null){
+                ((ItemViewHolder)holder).mNewsImg.setImageResource(R.mipmap.ic_image_white_24dp);
+            }else{
+                ImageLoaderUtils.display(mContext,((ItemViewHolder)holder).mNewsImg,news.getImgsrc());
+            }
         }
     }
 

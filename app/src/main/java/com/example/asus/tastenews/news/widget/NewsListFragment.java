@@ -15,13 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.asus.tastenews.news.adapter.NewsAdapter;
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.NewsBean;
 import com.example.asus.tastenews.common.Urls;
+import com.example.asus.tastenews.news.adapter.NewsAdapter;
+import com.example.asus.tastenews.news.cache.TextLocalCache;
 import com.example.asus.tastenews.news.presenter.NewsPresenter;
 import com.example.asus.tastenews.news.presenter.NewsPresenterImpl;
 import com.example.asus.tastenews.news.view.NewsView;
+import com.example.asus.tastenews.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +42,11 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
     private List<NewsBean> mData;
     private NewsPresenter mNewsPresenter;
 
+    private TextLocalCache mTextLocalCache;
+
     private int mType = NewsFragment.NEWS_TYPE_TOP;
     private int pageIndex = 0;
+    private boolean isFirstInApp = true;
 
     public static NewsListFragment newInstance(int type){
         NewsListFragment fragment = new NewsListFragment();
@@ -56,6 +61,7 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
         super.onCreate(savedInstanceState);
         mNewsPresenter = new NewsPresenterImpl(this);
         mType = getArguments().getInt("type");
+        mTextLocalCache = new TextLocalCache(getContext());
     }
 
     @Nullable
@@ -79,9 +85,25 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
         mAdapter.setOnItemClickListener(mOnItemClickListener);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addOnScrollListener(mOnScrollListener);
-        onRefresh();
 
+        firstInShowCache(NewsPresenterImpl.getTagByType(mType));
+        LogUtils.d("TAGGGGGGGGG","in the onCreateView");
+
+        LogUtils.d("TIMESTTT","last time is " + System.currentTimeMillis());
+        onRefresh();
         return view;
+    }
+
+
+    private void firstInShowCache(String type){
+        if(mData == null){
+            mData = new ArrayList<>();
+        }
+        mData.addAll(mTextLocalCache.getTextLocal(new String[]{type}));
+        if(pageIndex == 0){
+            mAdapter.setDatas(mData);
+        }
+        mAdapter.notifyDataSetChanged();
     }
 
     private RecyclerView.OnScrollListener mOnScrollListener =
@@ -122,6 +144,9 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
 
     @Override
     public void showProgress(){
+        if(isFirstInApp){
+            firstInShowCache(NewsPresenterImpl.getTagByType(mType));
+        }
         mSwipeRefreshWidget.setRefreshing(true);
     }
 
@@ -132,11 +157,22 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
 
     @Override
     public void addNews(List<NewsBean>newsList){
+        LogUtils.d("TIMESTTTT","newsList = " + newsList);
         mAdapter.isShowFooter(true);
         if(mData == null){
             mData = new ArrayList<NewsBean>();
         }
+
+        mData.clear();
         mData.addAll(newsList);
+        isFirstInApp = false;
+
+        if(newsList != null && newsList.size() > 0){
+            String tag = newsList.get(0).getTag();
+            mTextLocalCache.deleteAllText(new String[]{tag});
+            mTextLocalCache.saveAllTextToLocal(newsList);
+        }
+
         if(pageIndex == 0){
             mAdapter.setDatas(mData);
         }else{
@@ -164,12 +200,12 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
 
     @Override
     public void onRefresh(){
+        LogUtils.d("TAGGGGGGGGG","onRefresh() and isFirstInApp = " + isFirstInApp);
         pageIndex = 0;
-        if(mData != null){
+        if(mData != null && !isFirstInApp){
             mData.clear();
         }
-
+        isFirstInApp = false;
         mNewsPresenter.loadNews(mType,pageIndex);
     }
-
 }

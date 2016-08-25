@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/action_setting"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/voice_open"
+        android:orderInCategory="100"
+        android:title="@string/voice_open"
+        app:showAsAction="never"/>
 </menu>

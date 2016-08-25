@@ -21,18 +21,20 @@ import java.util.List;
 public class NewsFragment extends Fragment {
     public final static int NEWS_TYPE_TOP = 0;
     public final static int NEWS_TYPE_NBA = 1;
-    public final static int NEWS_TYPE_CARS = 2;
-    public final static int NEWS_TYPE_JOKES = 3;
+    public final static int NEWS_TYPE_JOKES = 2;
+    public final static int NEWS_TYPE_CARS = 3;
+
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private int mFirstShowFragmentId = NEWS_TYPE_TOP;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_news,null);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_news, null);
 
-        mTabLayout = (TabLayout)view.findViewById(R.id.tab_layout);
-        mViewPager = (ViewPager)view.findViewById(R.id.viewpager);
+        mTabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mViewPager.setOffscreenPageLimit(3);
         setupViewPager(mViewPager);
 
@@ -43,6 +45,10 @@ public class NewsFragment extends Fragment {
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager绑定
 
         return view;
+    }
+
+    public void setFirstShowFragment(int firstShowFragmentId){
+        mFirstShowFragmentId = firstShowFragmentId;
     }
 
     /**
@@ -61,6 +67,11 @@ public class NewsFragment extends Fragment {
         adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_CARS),getString(R.string.cars));
 
         mViewPager.setAdapter(adapter);
+        mViewPager.setCurrentItem(mFirstShowFragmentId);
+    }
+
+    public ViewPager getViewPager(){
+        return mViewPager;
     }
 
     /**

@@ -1,7 +1,6 @@
 package com.example.asus.tastenews.guide.presenter;
 
 import android.content.Context;
-import android.content.DialogInterface;
 
 import com.example.asus.tastenews.beans.UserBean;
 import com.example.asus.tastenews.guide.model.GuideModel;

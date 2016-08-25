@@ -20,6 +20,8 @@ public class NewsPresenterImpl implements NewsPresenter, NewsModelImpl.OnLoadNew
     private NewsView mNewsView;
     private NewsModel mNewsModel;
 
+    private int mType;
+
     public NewsPresenterImpl(NewsView newsView){
         mNewsView = newsView;
         mNewsModel = new NewsModelImpl();
@@ -29,6 +31,7 @@ public class NewsPresenterImpl implements NewsPresenter, NewsModelImpl.OnLoadNew
     public void loadNews(int type,int page){
         String url = getUrl(type,page);
         LogUtils.d(TAG,url);
+        mType = type;
 
         if(page == 0){
             mNewsView.showProgress();
@@ -62,8 +65,27 @@ public class NewsPresenterImpl implements NewsPresenter, NewsModelImpl.OnLoadNew
 
     @Override
     public void onSuccess(List<NewsBean> list){
+        LogUtils.d("TAGGGGGGGGG","onSuccess in presenterImpl");
         mNewsView.hideProgress();
+        for(NewsBean bean : list){
+            bean.setTag(getTagByType(mType));
+        }
         mNewsView.addNews(list);
+    }
+
+    public static String getTagByType(int type){
+        switch(type){
+            case NewsFragment.NEWS_TYPE_CARS:
+                return "cars";
+            case NewsFragment.NEWS_TYPE_JOKES:
+                return "jokes";
+            case NewsFragment.NEWS_TYPE_NBA:
+                return "nba";
+            case NewsFragment.NEWS_TYPE_TOP:
+                return "top";
+            default:
+                return "top";
+        }
     }
 
     @Override

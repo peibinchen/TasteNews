@@ -3,15 +3,15 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/taste_primary</item>
+        <item name="colorPrimaryDark">@color/taste_primary_dark</item>
+        <item name="colorAccent">@color/taste_primary</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/taste_primary</item>
+        <item name="colorPrimaryDark">@color/taste_primary_dark</item>
+        <item name="colorAccent">@color/taste_primary</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -33,6 +33,16 @@
     <style name="weacher_weather">
         <item name="android:textSize">16.0sp</item>
         <item name="android:textColor">@color/icons</item>
+    </style>
+
+    <style name="MenuButtonsStyle">
+        <item name="fab_size">mini</item>
+        <item name="fab_showAnimation">@anim/jump_from_down</item>
+        <item name="fab_hideAnimation">@anim/jump_to_down</item>
+        <item name="fab_shadowColor">#444</item>
+        <item name="fab_colorNormal">#FFB805</item>
+        <item name="fab_colorPressed">#F2AB00</item>
+        <item name="fab_colorRipple">#D99200</item>
     </style>
 
 </resources>

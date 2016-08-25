@@ -1,14 +1,11 @@
 package com.example.asus.tastenews.news.model;
 
-import android.accounts.NetworkErrorException;
-
 import com.example.asus.tastenews.application.NewsApplication;
 import com.example.asus.tastenews.beans.CommentBean;
 import com.example.asus.tastenews.beans.NewsBean;
 import com.example.asus.tastenews.beans.NewsDetailBean;
 import com.example.asus.tastenews.beans.UserBean;
 import com.example.asus.tastenews.common.Urls;
-import com.example.asus.tastenews.network.NetworkResolver;
 import com.example.asus.tastenews.news.NewsJsonUtils;
 import com.example.asus.tastenews.news.widget.NewsFragment;
 import com.example.asus.tastenews.utils.LogUtils;
@@ -19,7 +16,6 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobQueryResult;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SQLQueryListener;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -129,19 +125,21 @@ public class NewsModelImpl implements NewsModel {
     }
 
     private void saveNews(List<NewsBean>news_list){
-        for(NewsBean news : news_list){
-            news.save(NewsApplication.getNewsContext(), new SaveListener() {
-                @Override
-                public void onSuccess() {
-
-                }
-
-                @Override
-                public void onFailure(int i, String s) {
-
-                }
-            });
-        }
+//        BmobQuery<NewsBean>query = new BmobQuery<>();
+//
+//        for(NewsBean news : news_list){
+//            news.save(NewsApplication.getNewsContext(), new SaveListener() {
+//                @Override
+//                public void onSuccess() {
+//
+//                }
+//
+//                @Override
+//                public void onFailure(int i, String s) {
+//
+//                }
+//            });
+//        }
     }
 
     private String getID(int type){

@@ -1,14 +1,10 @@
 package com.example.asus.tastenews.network;
 
-import com.example.asus.tastenews.beans.NewsBean;
-import com.example.asus.tastenews.beans.WechatIInfoBean;
-import com.example.asus.tastenews.common.Urls;
+import com.example.asus.tastenews.beans.WeatherBeanPackage.WeatherBean;
 
-import java.util.List;
 import java.util.Map;
 
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 /**
@@ -16,5 +12,5 @@ import rx.Observable;
  */
 public interface LoadService {
     @GET("query")
-    Observable<WechatIInfoBean>loadNews(@QueryMap Map<String,String>otions);
+    Observable<WeatherBean>loadNews(@QueryMap Map<String,String>otions);
 }

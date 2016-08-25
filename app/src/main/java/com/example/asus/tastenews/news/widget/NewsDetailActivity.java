@@ -1,5 +1,6 @@
 package com.example.asus.tastenews.news.widget;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -10,13 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.CommentBean;
@@ -29,27 +29,25 @@ import com.example.asus.tastenews.ui.BarrageView;
 import com.example.asus.tastenews.utils.ImageLoaderUtils;
 import com.example.asus.tastenews.utils.LogUtils;
 import com.example.asus.tastenews.utils.ToolUtils;
-
-import org.sufficientlysecure.htmltextview.HtmlTextView;
+import com.github.clans.fab.FloatingActionButton;
+import com.zzhoujay.richtext.RichText;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.GetListener;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
-import mehdi.sakout.fancybuttons.FancyButton;
 
 /**
  * Created by ASUS on 2016/5/28.
  */
-public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailView {
+public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailView ,View.OnClickListener{
 
     private NewsBean mNews;
-    private HtmlTextView mTVNewsContent;
+    private TextView mTVNewsContent;
     private NewsDetailPresenter mNewsDetailPresenter;
     private ProgressBar mProgressBar;
     private SwipeBackLayout mSwipeBackLayout;
@@ -60,6 +58,9 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
     private EditText mCommentET;
     private CommentAdapter mCommentAdapter;
 
+    private FloatingActionButton mAskButton;
+    private FloatingActionButton mCommentAreaButton;
+
     private List<CommentBean>mCommentBeanList = new ArrayList<>();
 
     private static final int DELAY_TIME = 2000;
@@ -69,9 +70,16 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
 
+        initLayout();
+
+        mNewsDetailPresenter = new NewsDetailPresenterImpl(getApplication(),this);
+        mNewsDetailPresenter.loadNewsDetail(mNews.getDocid());
+    }
+
+    private void initLayout(){
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         mProgressBar = (ProgressBar)findViewById(R.id.progress);
-        mTVNewsContent = (HtmlTextView)findViewById(R.id.htNewsContent);
+        mTVNewsContent = (TextView)findViewById(R.id.htNewsContent);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//返回键
@@ -89,14 +97,12 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
 
         mCommentButton = (Button)findViewById(R.id.comment_bt);
         mCommentET = (EditText)findViewById(R.id.comment_et);
-        mCommentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UserBean user = BmobUser.getCurrentUser(NewsDetailActivity.this,UserBean.class);
-                String comment = mCommentET.getText() == null ? null : mCommentET.getText().toString();
-                mNewsDetailPresenter.sendCommentToNews(user,comment);
-            }
-        });
+        mCommentButton.setOnClickListener(this);
+
+        mAskButton = (FloatingActionButton)findViewById(R.id.fab_ask_question);
+        mCommentAreaButton = (FloatingActionButton)findViewById(R.id.fab_see_comment);
+        mAskButton.setOnClickListener(this);
+        mCommentAreaButton.setOnClickListener(this);
 
         mNews = (NewsBean)getIntent().getSerializableExtra("news");
 
@@ -104,14 +110,36 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
         collapsingToolbarLayout.setTitle(mNews.getTitle());
 
         ImageLoaderUtils.display(getApplicationContext(),(ImageView)findViewById(R.id.ivImage),mNews.getImgsrc());
+    }
 
-        mNewsDetailPresenter = new NewsDetailPresenterImpl(getApplication(),this);
-        mNewsDetailPresenter.loadNewsDetail(mNews.getDocid());
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this,CommentActivity.class);
+        intent.putExtra("news",mNews);
+        switch(v.getId()){
+            case R.id.comment_bt:
+                UserBean user = BmobUser.getCurrentUser(NewsDetailActivity.this,UserBean.class);
+                String comment = mCommentET.getText() == null ? null : mCommentET.getText().toString();
+                mNewsDetailPresenter.sendCommentToNews(user,comment);
+                break;
+            case R.id.fab_ask_question:
+                Toast.makeText(this,"问问题",Toast.LENGTH_SHORT).show();
+                intent.putExtra(CommentActivity.COMMENT_TYPE,CommentActivity.COMMENT_TYPE_ASK);
+                startActivity(intent);
+                break;
+            case R.id.fab_see_comment:
+                Toast.makeText(this,"看评论",Toast.LENGTH_SHORT).show();
+                intent.putExtra(CommentActivity.COMMENT_TYPE,CommentActivity.COMMENT_TYPE_COMMENT_AREA);
+                startActivity(intent);
+                break;
+        }
     }
 
     @Override
     public void showNewsDetailContent(String newsDetailContent, List<CommentBean>commentBeanList){
-        mTVNewsContent.setHtmlFromString(newsDetailContent,new HtmlTextView.LocalImageGetter());
+        LogUtils.d("mydsaadsa","detail is " + newsDetailContent);
+//        mTVNewsContent.setHtmlFromString(newsDetailContent,new HtmlTextView.LocalImageGetter());
+        RichText.from(newsDetailContent).into(mTVNewsContent);
 
         LogUtils.d("opopp","commentBeans are " + commentBeanList);
         mCommentBeanList = commentBeanList;
@@ -123,6 +151,8 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
     }
 
     private void setBarrageView(){
+        if(mCommentBeanList == null)
+            return;
         int size = mCommentBeanList.size();
         if(size == 0)
             return;
@@ -170,8 +200,26 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
         CommentBean commentBean = new CommentBean();
         commentBean.setComment_people(bmobUser);
         commentBean.setContent(comment);
+        setBarrageViewForCurrentComment(comment);
         mCommentBeanList.add(0,commentBean);
         mCommentAdapter.notifyDataSetChanged();
+    }
+
+    private void setBarrageViewForCurrentComment(final String comment){
+        final Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                final BarrageView bv = new BarrageView(NewsDetailActivity.this);
+                bv.setText(comment);
+                LogUtils.d("PPPP","text is " + bv.getText());
+                addContentView
+                        (bv, new ViewGroup.LayoutParams
+                                (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            }
+        };
+
+        handler.post(runnable);
     }
 
     @Override
@@ -210,6 +258,8 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
 
         @Override
         public int getItemCount() {
+            if(mCommentBeanList == null)
+                return 0;
             return mCommentBeanList.size();
         }
 
@@ -224,5 +274,15 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
                 mCommentTV = (TextView)view.findViewById(R.id.tvComment);
             }
         }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
     }
 }
