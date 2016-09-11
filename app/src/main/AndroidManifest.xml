@@ -61,8 +61,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".about.widget.TestActivity"/>
-        <activity android:name=".news.widget.CommentActivity"/>
+        <activity android:name=".news.widget.CommentActivity"
+                  android:theme="@style/AppTheme.NoActionBar.Translucent"/>
 
         <activity android:name=".floatingwindow.widget.BaseFloatingActivity"/>
         <service android:name=".floatingwindow.widget.NewsTagService"/>

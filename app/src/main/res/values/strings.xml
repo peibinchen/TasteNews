@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">TasteNews</string>
-    <string name="action_setting">Setting</string>
+    <string name="action_setting">设置</string>
     <string name="voice_open">开启语音控制</string>
     <string name="voice_close">关闭语音控制</string>
+    <string name="theme_day">白天模式</string>
+    <string name="theme_night">夜晚模式</string>
     <string name="name">看些什么</string>
     <string name="navigation_news">新闻</string>
     <string name="navigation_weather">天气</string>
@@ -38,6 +40,10 @@
     <string name="register_failure">注册失败，请重试！</string>
 
     <string name="add_comment">尽情书写你的观点吧！</string>
+    <string name="comment">评论</string>
+    <string name="loading">Loading.....</string>
+    <string name="user">账号</string>
+    <string name="password">密码</string>
 
     <string name="jump_to_news">查看更多。。。</string>
 

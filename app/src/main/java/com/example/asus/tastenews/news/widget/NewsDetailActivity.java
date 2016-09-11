@@ -68,6 +68,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+//        initTheme();
         setContentView(R.layout.activity_news_detail);
 
         initLayout();
@@ -75,6 +76,12 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
         mNewsDetailPresenter = new NewsDetailPresenterImpl(getApplication(),this);
         mNewsDetailPresenter.loadNewsDetail(mNews.getDocid());
     }
+//
+//    private void initTheme(){
+//        int mode = ((NewsApplication)getApplication()).getMode();
+//        setTheme(mode);
+//    }
+
 
     private void initLayout(){
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);

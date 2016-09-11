@@ -41,7 +41,7 @@ public class GuideFragment extends Fragment implements GuideView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        final View view = inflater.inflate(R.layout.fragment_guide,null);
+        final View view = inflater.inflate(R.layout.fragment_guide,container,false);
         initViews(view);
 
         mLoginBT.setOnClickListener(new View.OnClickListener(){

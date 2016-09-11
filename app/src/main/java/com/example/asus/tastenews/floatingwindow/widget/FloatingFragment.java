@@ -34,7 +34,7 @@ public class FloatingFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_floating_window,null);
+        View view = inflater.inflate(R.layout.activity_floating_window,container,false);
         mContext = getActivity();
         bindService();
 
@@ -94,14 +94,6 @@ public class FloatingFragment extends Fragment {
         unbindService();
         super.onStop();
     }
-
-    /*
-    @Override
-    protected void onRestart(){
-        bindService();
-        super.onRestart();
-    }
-    */
 
     @Override
     public void onResume(){

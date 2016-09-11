@@ -25,11 +25,12 @@
             >
 
             <ImageView
+                android:contentDescription="@string/app_name"
                 android:id="@+id/ivImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                android:transitionName="@string/transition_news_img"
+                style="@style/transitionName"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
@@ -87,14 +88,13 @@
                     android:layout_width="0dp"
                     android:layout_weight="5"
                     android:layout_height="wrap_content"
-                    android:hint="写下你的评论吧~"/>
+                    android:hint="@string/add_comment"/>
                 <Button
                     android:id="@+id/comment_bt"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:text="评论"/>
+                    android:text="@string/comment"/>
 
             </LinearLayout>
         </RelativeLayout>

@@ -1,6 +1,5 @@
 package com.example.asus.tastenews.register.widget;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -14,7 +13,6 @@ import android.widget.ProgressBar;
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.UserBean;
 import com.example.asus.tastenews.main.widget.MainActivity;
-import com.example.asus.tastenews.news.widget.NewsFragment;
 import com.example.asus.tastenews.register.presenter.RegisterPresenter;
 import com.example.asus.tastenews.register.presenter.RegisterPresenterImpl;
 import com.example.asus.tastenews.register.view.RegisterView;
@@ -44,7 +42,7 @@ public class RegisterFragment extends Fragment implements RegisterView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup,Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_register,null);
+        View view = inflater.inflate(R.layout.fragment_register,viewGroup,false);
 
         mRegisterName = (EditText)view.findViewById(R.id.username_register);
         mRegisterPassword = (EditText)view.findViewById(R.id.password_register);

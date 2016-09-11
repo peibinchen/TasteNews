@@ -1,21 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="primary">#F44336</color>
-    <color name="primary_dark">#D32F2F</color>
-    <color name="primary_light">#FFCDD2</color>
-    <color name="accent">#CDDC39</color>
+    <color name="colorPrimary">#79838f</color>
+    <color name="colorPrimaryDark">#777184</color>
+    <color name="colorAccent">#a498ab</color>
+    <color name="primary">#79838f</color>
+    <color name="primary_dark">#777184</color>
+    <color name="primary_light">#a498ab</color>
+    <color name="accent">#a498ab</color>
     <color name="primary_text">#212121</color>
-    <color name="secondary_text">#727272</color>
+    <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
-    <color name="divider">#B6B6B6</color>
+    <color name="divider">#BDBDBD</color>
     <color name="name_text">#43b7ff</color>
 
-    <color name="taste_primary">#707381</color>
-    <color name="taste_primary_light">#858294</color>
-    <color name="taste_primary_dark">#6d6a7c</color>
+    <!--黑色调-->
+    <color name="taste_night_primary">#263337</color>
+    <color name="taste_night_primary_light">#cfd8dc</color>
+    <color name="taste_night_primary_dark">#455a64</color>
+    <color name="taste_night_primary_accent">#607d8b</color>
+    <color name="taste_night_background">#36484f</color>
+    <color name="taste_night_root_background">#212c30</color>
+    <color name="taste_night_detail_background">#36484f</color>
+    <color name="taste_night_question_background">#36484f</color>
+    <color name="taste_night_question_area_background">#36484f</color>
+    <color name="taste_night_text">#e5e8e8</color>
+    <color name="taste_night_second_text">#9ea7a9</color>
+    <color name="taste_night_header">#6d6a7c</color>
+    <color name="taste_night_footer">#FFFFFF</color>
+
+    <!--蓝色调-->
+    <color name="taste_blue_primary">#1d8be7</color>
+    <color name="taste_blue_primary_light">#66ccff</color>
+    <color name="taste_blue_primary_dark">#0488e7</color>
+    <color name="taste_blue_primary_accent">#66ccff</color>
+    <color name="taste_blue_background">#ffffff</color>
+    <color name="taste_blue_root_background">#eaeef4</color>
+    <color name="taste_blue_detail_background">#1d8be7</color>
+    <color name="taste_blue_question_background">#eaeef4</color>
+    <color name="taste_blue_question_area_background">#eaeef4</color>
+    <color name="taste_blue_text">#4c4c4c</color>
+    <color name="taste_blue_second_text">#727272</color>
+    <color name="taste_blue_header">#1d8be7</color>
+    <color name="taste_blue_footer">#268bff</color>
+
+    <!--白色调-->
+    <color name="taste_day_primary">#2196f3</color>
+    <color name="taste_day_primary_light">#bbdefb</color>
+    <color name="taste_day_primary_dark">#1976d2</color>
+    <color name="taste_day_primary_accent">#536dfe</color>
+    <color name="taste_day_background">#2196f3</color>
+    <color name="taste_day_root_background">#eaeef4</color>
+    <color name="taste_day_detail_background">#1d8be7</color>
+    <color name="taste_day_question_background">#eaeef4</color>
+    <color name="taste_day_question_area_background">#eaeef4</color>
+    <color name="taste_day_text">#212121</color>
+    <color name="taste_day_second_text">#757575</color>
+    <color name="taste_day_header">#6d6a7c</color>
+    <color name="taste_day_footer">#FFFFFF</color>
 
     <!-- 画面背景色 -->
     <drawable name="layout_backgroud">#000000</drawable>

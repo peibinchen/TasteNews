@@ -1,11 +1,13 @@
 package com.example.asus.tastenews.main.widget;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import com.example.asus.tastenews.about.widget.AboutFragment;
 import com.example.asus.tastenews.floatingwindow.widget.FloatingFragment;
 import com.example.asus.tastenews.guide.widget.GuideFragment;
 import com.example.asus.tastenews.images.widget.ImageFragment;
+import com.example.asus.tastenews.main.helper.ThemeSwitchHelper;
 import com.example.asus.tastenews.main.presenter.MainPresenter;
 import com.example.asus.tastenews.main.presenter.MainPresenterImpl;
 import com.example.asus.tastenews.main.view.MainView;
@@ -27,6 +30,7 @@ import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.sunflower.FlowerCollector;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements MainView,SpeechRecognitionUtils.SpeechRecognitionCallback {
 
@@ -37,17 +41,31 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
     private MainPresenter mMainPresenter;
     private SpeechRecognitionUtils mSpeechRecognition;
     private boolean isListening = false;
+    private ThemeSwitchHelper mThemeSwitchHelper;
+    private OnThemeSwitchListener mOnThemeSwitchListener;
     private final String TAG = MainActivity.class.getSimpleName();
+
+    public static final String THEME_NAVIGATION = "navigation_theme";
+    public static final String THEME_BACKGROUND = "background_theme";
+    public static final String THEME_TEXT = "text_theme";
+    public static final String THEME_TEXT_SECOND = "text_second_theme";
+    public static final String THEME_TAB = "tab_theme";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LogUtils.d("dshfau","MainActivity created");
         super.onCreate(savedInstanceState);
+//        initTheme();
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
         init();
         switch2News();
+    }
+
+    public void setOnThemeSwitchListener(OnThemeSwitchListener listener){
+        mOnThemeSwitchListener = listener;
     }
 
     @Override
@@ -143,15 +161,42 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if(id == R.id.action_setting){
-            Toast.makeText(this,"setting",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"设置",Toast.LENGTH_SHORT).show();
             return true;
-        }else if(id == R.id.voice_open){
-            Toast.makeText(this,"voice_open",Toast.LENGTH_SHORT).show();
-            mSpeechRecognition.startSpeechRecognition(this,this);
-            return true;
+        }else if(id == R.id.voice_open) {
+          Toast.makeText(this, "开启语音控制", Toast.LENGTH_SHORT).show();
+          mSpeechRecognition.startSpeechRecognition(this, this);
+          return true;
         }
+//        }else if(id == R.id.day_theme){
+//            setTheme(R.style.DayStyle);
+//            ((NewsApplication)(getApplication())).setMode(R.style.DayStyle);
+//            mThemeSwitchHelper.setThemeMode(ThemeSwitchHelper.THEME_MODE_DAY);
+//            refreshUI();
+//            return true;
+//        }else if(id == R.id.night_theme){
+//            setTheme(R.style.BlueStyle);
+//            ((NewsApplication)(getApplication())).setMode(R.style.BlueStyle);
+//            mThemeSwitchHelper.setThemeMode(ThemeSwitchHelper.THEME_MODE_NIGTH);
+//            refreshUI();
+//            return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
+
+  /**
+   * 由于对UI设计不熟，因此只是当作练技术，未将换肤功能加入实际的app中。
+   */
+//  private void initTheme(){
+//        mThemeSwitchHelper = new ThemeSwitchHelper(this);
+//        if(mThemeSwitchHelper.isDay()){
+//            setTheme(R.style.DayStyle);
+//            ((NewsApplication)(getApplication())).setMode(R.style.DayStyle);
+//        }else{
+//            setTheme(R.style.BlueStyle);
+//            ((NewsApplication)(getApplication())).setMode(R.style.BlueStyle);
+//        }
+//    }
 
     private void init(){
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -167,7 +212,36 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
 
         SpeechUtility.createUtility(this, SpeechConstant.APPID +"=579db503");
         mSpeechRecognition = new SpeechRecognitionUtils();
+    }
 
+    private void refreshUI(){
+        TypedValue backgroundColor = new TypedValue();
+        TypedValue textColor= new TypedValue();
+        TypedValue textPrimaryColor = new TypedValue();
+        TypedValue headerColor = new TypedValue();
+        TypedValue footerColor = new TypedValue();
+        TypedValue titleBarColor = new TypedValue();
+        TypedValue tabColor = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorBackground,backgroundColor,true);
+        theme.resolveAttribute(R.attr.colorText,textColor,true);
+        theme.resolveAttribute(R.attr.colorTextPrimary,textPrimaryColor,true);
+        theme.resolveAttribute(R.attr.colorHeader,headerColor,true);
+        theme.resolveAttribute(R.attr.colorFooter,footerColor,true);
+        theme.resolveAttribute(R.attr.colorTitleBar,titleBarColor,true);
+        theme.resolveAttribute(R.attr.colorTab,tabColor,true);
+
+        mNavigationView.getHeaderView(0).setBackgroundResource(headerColor.resourceId);
+        mToolbar.setBackgroundResource(titleBarColor.resourceId);
+        mToolbar.setBackgroundColor(this.getResources().getColor(titleBarColor.resourceId));
+        if(mOnThemeSwitchListener != null){
+            HashMap<String,TypedValue> themes = new HashMap<>();
+            themes.put(THEME_BACKGROUND,backgroundColor);
+            themes.put(THEME_TEXT,textColor);
+            themes.put(THEME_TEXT_SECOND,textPrimaryColor);
+            themes.put(THEME_TAB,tabColor);
+            mOnThemeSwitchListener.switch2Theme(themes);
+        }
     }
 
     private void setupDrawerLayout(NavigationView navigationView){
@@ -229,8 +303,6 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
     public void switch2Images(){
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_content,new ImageFragment()).commit();
-//        getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.frame_content,new TestFragment()).commit();
         mToolbar.setTitle(getString(R.string.navigation_images));
     }
 
@@ -269,5 +341,9 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
         FlowerCollector.onPageEnd(TAG);
         FlowerCollector.onPause(this);
         super.onPause();
+    }
+
+    public interface OnThemeSwitchListener{
+        void switch2Theme(HashMap<String,TypedValue> themes);
     }
 }

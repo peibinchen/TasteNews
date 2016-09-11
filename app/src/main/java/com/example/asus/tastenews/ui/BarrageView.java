@@ -91,7 +91,7 @@ public class BarrageView extends TextView {
     }
 
     class RollThread extends Thread{
-        private Object mPauseLock;
+        private final Object mPauseLock;
         private boolean mPauseFlag;
 
         public RollThread(){

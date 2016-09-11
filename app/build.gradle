@@ -60,15 +60,15 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:multidex:1.0.1'
     compile project(':swipeback')
-    compile 'com.android.support:design:23.2.0'
+    compile 'com.android.support:design:24.1.1'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'org.sufficientlysecure:html-textview:1.3'
-    compile 'com.android.support:cardview-v7:23.2.0'
+    compile 'com.android.support:cardview-v7:24.1.1'
     compile 'com.github.medyo:fancybuttons:1.8.1'
-    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile files('libs/Bmob_Push_V0.9beta_20160520.jar')
     compile files('libs/BmobSDK_V3.4.7_0527.jar')

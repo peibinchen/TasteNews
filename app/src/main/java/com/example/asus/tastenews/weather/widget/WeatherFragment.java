@@ -49,7 +49,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_weather,null);
+        View view = inflater.inflate(R.layout.fragment_weather,container,false);
         mTodayTV = (TextView)view.findViewById(R.id.today);
         mCityTV = (TextView)view.findViewById(R.id.city);
         mTodayWeather = (TextView)view.findViewById(R.id.weather);

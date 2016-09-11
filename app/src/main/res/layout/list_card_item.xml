@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linear_list_card_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:stackHeaderHeight="160dp"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/frame_list_card_item"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="@drawable/shape_rectangle_with_radius">
+
+        <TextView
+            android:id="@+id/text_list_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            tools:text="12"/>
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/bt_comment"
+            android:layout_margin="10dp"
+            android:layout_width="120dp"
+            android:layout_gravity="end|bottom"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:visibility="gone"
+            fancy:fb_borderColor="#fdfdfd"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_focusColor="#39a3ef"
+            fancy:fb_fontIconResource="&#xf054;"
+            fancy:fb_iconPosition="right"
+            fancy:fb_radius="0dp"
+            fancy:fb_text="评论"
+            fancy:fb_textColor="#ffffff"
+            fancy:fb_ghost="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_list_content"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+</LinearLayout>

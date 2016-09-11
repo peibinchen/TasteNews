@@ -63,7 +63,7 @@ public class AboutFragment extends Fragment{
 //        mBluetoothHelper = new BluetoothHelper(getContext(),this);
 //        return view;
 
-        View view = inflater.inflate(R.layout.fragment_test,null);
+        View view = inflater.inflate(R.layout.fragment_test,container,false);
 
         return view;
     }

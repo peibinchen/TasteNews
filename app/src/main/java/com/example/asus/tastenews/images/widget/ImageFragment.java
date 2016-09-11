@@ -46,7 +46,7 @@ public class ImageFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceStata){
-        View view = inflater.inflate(R.layout.fragment_image,null);
+        View view = inflater.inflate(R.layout.fragment_image,container,false);
         mSwipeRefreshWidget = (SwipeRefreshLayout)view.findViewById(R.id.swipe_refresh_widget);
         mSwipeRefreshWidget.setColorSchemeResources(R.color.primary,
                 R.color.primary_dark,R.color.primary_light,
@@ -60,7 +60,7 @@ public class ImageFragment extends Fragment
         mRecycleView.setLayoutManager(mLayoutManager);
 
         mRecycleView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new ImageAdapter(getActivity().getApplicationContext());
+        mAdapter = new ImageAdapter(getActivity());
         mRecycleView.setAdapter(mAdapter);
         mRecycleView.addOnScrollListener(mOnScrollListener);
         mRecycleView.setOnTouchListener(new View.OnTouchListener() {

@@ -1,37 +1,43 @@
 package com.example.asus.tastenews.news.widget;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.asus.tastenews.R;
+import com.example.asus.tastenews.main.widget.MainActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * 新闻界面：包括四个部分，用TabLayout和ViewPager管理
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements MainActivity.OnThemeSwitchListener{
     public final static int NEWS_TYPE_TOP = 0;
     public final static int NEWS_TYPE_NBA = 1;
     public final static int NEWS_TYPE_JOKES = 2;
     public final static int NEWS_TYPE_CARS = 3;
 
+    private final String TAG = "NEWSTEST";
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private MyPageAdapter mMyPagerAdapter;
     private int mFirstShowFragmentId = NEWS_TYPE_TOP;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news, null);
+        View view = inflater.inflate(R.layout.fragment_news,container,false);
 
         mTabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
@@ -44,6 +50,10 @@ public class NewsFragment extends Fragment {
         mTabLayout.addTab(mTabLayout.newTab().setText(R.string.cars));
         mTabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager绑定
 
+        if(((Activity)getContext()).getClass() == MainActivity.class){
+            MainActivity activity = (MainActivity)getContext();
+            activity.setOnThemeSwitchListener(this);
+        }
         return view;
     }
 
@@ -60,13 +70,13 @@ public class NewsFragment extends Fragment {
     private void setupViewPager(ViewPager mViewPager){
 
         // getChildFragmentManager()用于对Fragment中嵌套的Fragment进行管理
-        MyPageAdapter adapter = new MyPageAdapter(getChildFragmentManager());
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_TOP),getString(R.string.top));
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_NBA),getString(R.string.nba));
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_JOKES),getString(R.string.jokes));
-        adapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_CARS),getString(R.string.cars));
+        mMyPagerAdapter = new MyPageAdapter(getChildFragmentManager());
+        mMyPagerAdapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_TOP),getString(R.string.top));
+        mMyPagerAdapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_NBA),getString(R.string.nba));
+        mMyPagerAdapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_JOKES),getString(R.string.jokes));
+        mMyPagerAdapter.addFragment(NewsListFragment.newInstance(NEWS_TYPE_CARS),getString(R.string.cars));
 
-        mViewPager.setAdapter(adapter);
+        mViewPager.setAdapter(mMyPagerAdapter);
         mViewPager.setCurrentItem(mFirstShowFragmentId);
     }
 
@@ -90,6 +100,10 @@ public class NewsFragment extends Fragment {
             mFragmentTitles.add(title);
         }
 
+        public List<Fragment> getFragments(){
+            return mFragments;
+        }
+
         @Override
         public Fragment getItem(int position){
             return mFragments.get(position);
@@ -104,6 +118,28 @@ public class NewsFragment extends Fragment {
         public CharSequence getPageTitle(int position){
             return mFragmentTitles.get(position);
         }
+    }
+
+    @Override
+    public void switch2Theme(HashMap<String, TypedValue> themes) {
+        if(mMyPagerAdapter == null || mMyPagerAdapter.getFragments() == null || mMyPagerAdapter.getFragments().size() == 0){
+            return;
+        }
+
+        mTabLayout.setBackgroundResource(themes.get(MainActivity.THEME_TAB).resourceId);
+        mViewPager.setBackgroundResource(themes.get(MainActivity.THEME_BACKGROUND).resourceId);
+        List<Fragment>fragments = mMyPagerAdapter.getFragments();
+        NewsListFragment listFragment;
+        for(Fragment fragment : fragments){
+            if(fragment instanceof NewsListFragment){
+                listFragment = (NewsListFragment)fragment;
+                listFragment.notifyThemeChange(themes);
+            }
+        }
+    }
+
+    public interface OnThemeChangeListener{
+        void notifyThemeChange(HashMap<String,TypedValue>themes);
     }
 }
 

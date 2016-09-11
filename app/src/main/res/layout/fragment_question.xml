@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/met_main_quesiton"
+        android:gravity="center"
+        android:hint="@string/fab_ask_question_main"
+        app:met_baseColor="#0056d3"
+        app:met_primaryColor="#982360"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_hideUnderline = "false"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/met_question_description"
+            android:hint="@string/fab_ask_question_description"
+            android:gravity="top|center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:met_hideUnderline = "true"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab_submit_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>
