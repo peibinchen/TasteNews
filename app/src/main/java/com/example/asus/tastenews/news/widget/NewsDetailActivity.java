@@ -30,6 +30,7 @@ import com.example.asus.tastenews.utils.ImageLoaderUtils;
 import com.example.asus.tastenews.utils.LogUtils;
 import com.example.asus.tastenews.utils.ToolUtils;
 import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.zzhoujay.richtext.RichText;
 
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
 
     private FloatingActionButton mAskButton;
     private FloatingActionButton mCommentAreaButton;
+    private FloatingActionMenu mFloatingACtionMenu;
 
     private List<CommentBean>mCommentBeanList = new ArrayList<>();
 
@@ -106,6 +108,7 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
         mCommentET = (EditText)findViewById(R.id.comment_et);
         mCommentButton.setOnClickListener(this);
 
+        mFloatingACtionMenu = (FloatingActionMenu)findViewById(R.id.fam_comment_area);
         mAskButton = (FloatingActionButton)findViewById(R.id.fab_ask_question);
         mCommentAreaButton = (FloatingActionButton)findViewById(R.id.fab_see_comment);
         mAskButton.setOnClickListener(this);
@@ -131,11 +134,13 @@ public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailV
                 break;
             case R.id.fab_ask_question:
                 Toast.makeText(this,"问问题",Toast.LENGTH_SHORT).show();
+                mFloatingACtionMenu.close(true);
                 intent.putExtra(CommentActivity.COMMENT_TYPE,CommentActivity.COMMENT_TYPE_ASK);
                 startActivity(intent);
                 break;
             case R.id.fab_see_comment:
                 Toast.makeText(this,"看评论",Toast.LENGTH_SHORT).show();
+                mFloatingACtionMenu.close(true);
                 intent.putExtra(CommentActivity.COMMENT_TYPE,CommentActivity.COMMENT_TYPE_COMMENT_AREA);
                 startActivity(intent);
                 break;

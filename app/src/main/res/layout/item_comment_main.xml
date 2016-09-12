@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textColor="@color/primary_text"/>
+            android:textColor="@color/taste_day_text"/>
 
         <TextView
             android:padding="10dp"
@@ -30,7 +30,8 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="@color/taste_day_second_text"/>
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/fbt_comment_submit"
@@ -42,7 +43,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="10dp"
-            fancy:fb_borderColor="#fdfdfd"
+            fancy:fb_borderColor="#0054fc"
             fancy:fb_borderWidth="1dp"
             fancy:fb_focusColor="#39a3ef"
             fancy:fb_fontIconResource="&#xf054;"

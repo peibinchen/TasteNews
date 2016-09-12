@@ -1,16 +1,12 @@
 package com.example.asus.tastenews.news.widget;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.tastenews.R;
@@ -24,17 +20,13 @@ import com.example.asus.tastenews.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import mehdi.sakout.fancybuttons.FancyButton;
-
 /**
  * Created by ASUS on 2016/8/28.
  */
 public class CommentToQuestionFragment extends BaseFragment{
-  private CardView mCardView;
   private RecyclerView mRecyclerView;
   private QuestionAdapter<ReplyTable> mReplyAdapter;
   private ProgressBar mProgressBar;
-  private FancyButton mAnswerButton;
 
   private QuestionTable mQuestionTable;
   private List<ReplyTable> mReplyTables;
@@ -89,36 +81,11 @@ public class CommentToQuestionFragment extends BaseFragment{
     }
 
     mProgressBar = (ProgressBar)view.findViewById(R.id.progress);
-    mCardView = (CardView)view.findViewById(R.id.comment_toquestion_cv);
-    mAnswerButton = (FancyButton)mCardView.findViewById(R.id.fbt_comment_submit);
-    mAnswerButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(CommentAddFragment.EXTRA_USERBEAN, mQuestionTable.getNewsId());
-        bundle.putSerializable(CommentAddFragment.EXTRA_QUESTIONTABLE, mQuestionTable);
-        CommentAddFragment fragment = new CommentAddFragment();
-        fragment.setArguments(bundle);
-        if (getContext() instanceof AppCompatActivity) {
-          AppCompatActivity activity = (AppCompatActivity) getContext();
-          FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-          transaction.replace(R.id.frame_comment_content, fragment);
-          transaction.commit();
-        }
-      }
-    });
 
-    mRecyclerView = (RecyclerView)view.findViewById(R.id.rv_commentmain);
+    mRecyclerView = (RecyclerView)view.findViewById(R.id.rv_commenttoquestion);
     mReplyAdapter = new QuestionAdapter<ReplyTable>(getContext());
     mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     mRecyclerView.setAdapter(mReplyAdapter);
-
-    TextView nameTV = ((TextView)mCardView.findViewById(R.id.tv_name));
-    LogUtils.d(TAG,"question akser is " + mQuestionTable.getQuestionerId().getUsername());
-    nameTV.setText(mQuestionTable.getQuestionerId().getUsername());
-
-    LogUtils.d(TAG,"question asker is " + mQuestionTable.getQuestion_description());
-    ((TextView)mCardView.findViewById(R.id.tv_content)).setText(mQuestionTable.getQuestion_content());
   }
 
   @Override

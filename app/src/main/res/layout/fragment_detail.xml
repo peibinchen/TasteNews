@@ -5,7 +5,10 @@
               android:layout_height="match_parent">
 
     <TextView
+        android:padding="@dimen/default_padding_top"
         android:id="@+id/detail_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sn_20sp"/>
+
 </LinearLayout>
