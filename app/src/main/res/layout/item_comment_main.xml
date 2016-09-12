@@ -50,7 +50,7 @@
             fancy:fb_iconPosition="right"
             fancy:fb_radius="0dp"
             fancy:fb_text="回答"
-            fancy:fb_textColor="#ffffff"
+            fancy:fb_textColor="#0017ea"
             fancy:fb_ghost="true"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

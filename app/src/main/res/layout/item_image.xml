@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:background="?attr/colorBackground"
         android:orientation="vertical"
         android:padding="8dp">
         <TextView
@@ -18,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textColor="?attr/colorText"
             android:textSize="@dimen/sn_16sp"
             android:layout_marginBottom="8dp"
             android:padding="4dp"
