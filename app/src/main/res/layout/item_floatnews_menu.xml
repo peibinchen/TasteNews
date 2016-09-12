@@ -39,6 +39,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <ImageButton
+            android:contentDescription="@string/app_name"
             android:layout_margin="10dp"
             android:id="@+id/float_ib_previous"
             android:layout_width="36dp"
@@ -47,6 +48,7 @@
             android:src="@mipmap/landscape_player_btn_pre_press"/>
 
         <ImageButton
+            android:contentDescription="@string/app_name"
             android:layout_margin="10dp"
             android:id="@+id/float_ib_play"
             android:layout_width="36dp"
@@ -55,6 +57,7 @@
             android:src="@mipmap/landscape_player_btn_play_press"/>
 
         <ImageButton
+            android:contentDescription="@string/app_name"
             android:layout_margin="10dp"
             android:id="@+id/float_ib_next"
             android:layout_width="36dp"

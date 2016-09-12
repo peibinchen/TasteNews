@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
-import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
@@ -16,18 +15,13 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.asus.tastenews.R;
-import com.example.asus.tastenews.ui.FloatingMenu.ArcLayout;
-import com.example.asus.tastenews.ui.FloatingMenu.ArcMenu;
-import com.example.asus.tastenews.utils.LogUtils;
+import com.example.asus.tastenews.ui.TagCloud.TagCloudView;
+import com.example.asus.tastenews.ui.TagCloud.TagsAdapter;
 
-import java.nio.channels.AsynchronousCloseException;
 
 /**
  * Created by cpb on 2016/7/1.
@@ -48,6 +42,9 @@ public class FloatWindow {
     private DisplayMetrics mDisplayMetrics;
     private View mPlayerView,mFloatView;
     private View mContentView;
+
+    private TagCloudView mTagCloudView;
+    private TagsAdapter mTagsAdapter;
 
     private boolean mIsOpen = false;//是否开启菜单页
     private boolean mIsShowing = false;//contentView是否显示
@@ -142,6 +139,26 @@ public class FloatWindow {
         }
     }
 
+    /**
+     * 设置3D效果的CloudView
+     * 这里详细说明一下，TagCloudView是自定义控件，
+     * 里面对于中心点（centerX,centerY）的测量是在initFromAdapter()函数中进行的，
+     * 但是要注意，里面用的方法是getRight() - getLeft()，这就意味着必须要在这个布局显示
+     * 的时候才可以进行，不然就会出现getRight() == 0的情况，毕竟layout没有显示，它就不会
+     * 调用onMeasure函数，自然也就不会有尺寸了。
+     * 为此，我们将setAdapter函数一直到playerView点出来才调用，只有这样才能准确地测量
+     * 尺寸并且正确放置。
+     * 这也就是为什么要多出setTagCloud()函数和setTagsAdapter()函数
+     * @param cloudView
+     */
+    public void setTagCloud(TagCloudView cloudView){
+        mTagCloudView = cloudView;
+    }
+
+    public void setTagsAdapter(TagsAdapter tagsAdapter){
+        mTagsAdapter = tagsAdapter;
+    }
+
     public WindowManager.LayoutParams getWLayoutParams(){
         if(mLayoutParams == null){
             mLayoutParams = new WindowManager.LayoutParams();
@@ -160,6 +177,7 @@ public class FloatWindow {
         mOldX = getWLayoutParams().x;
         mOldY = getWLayoutParams().y;
         setContentView(mPlayerView);
+        mTagCloudView.setAdapter(mTagsAdapter);
         mHandler.removeMessages(WHAT_HIDE);
         mIsOpen = true;
     }
@@ -172,7 +190,6 @@ public class FloatWindow {
                 mHandler.sendEmptyMessage(WHAT_HIDE);
             }
         }else if(getContentView() == null){
-            LogUtils.d("CONTENT","is null");
             createContentView(mFloatView);
             getWindowManager().addView(getContentView(),getWLayoutParams());
             mIsShowing = true;
@@ -395,10 +412,8 @@ public class FloatWindow {
         //mDownXInView = event.getX();
         //mDownYInView = event.getY();
 
-        LogUtils.d("TRACEDOWN","floatingWindow mDownX = " + mDownX + "   mDownY = " + mDownY);
         mDownTimeMillis = System.currentTimeMillis();
         mLastTouchTimeMillis = System.currentTimeMillis();
-        LogUtils.d("TRACEDOWN","down is called");
         getWLayoutParams().alpha = 1.0f;
         getWindowManager().updateViewLayout(getContentView(),getWLayoutParams());
     }
@@ -497,7 +512,6 @@ public class FloatWindow {
         @Override
         protected Void doInBackground(Void... params) {
             while(mParamsY > 0){
-                LogUtils.d("TRACELAUNCH","y = " + mParamsY);
                 mParamsY -= 20;
                 //AsyncTask中要在doInBackground中加入publishProcess()
                 // 才会调用onProcessUpdate()
@@ -513,13 +527,11 @@ public class FloatWindow {
 
         @Override
         protected void onProgressUpdate(Void... values) {
-            LogUtils.d("MOVELAUNCH","paramsX = " + mParamsX + "    mParamsY = " + mParamsY);
             updateLocation(mParamsX,mParamsY,false);
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            LogUtils.d("MOVELAUNCH","execute");
             mWindowManager.removeView(mFloatView);
             mContentView = null;
         }
@@ -527,7 +539,6 @@ public class FloatWindow {
 
     private void updateLocation(float x,float y,boolean isOffset){
         if(mContentView == null){
-            LogUtils.d("MOVELAUNCH","mContentView is null");
             return;
         }
 
@@ -596,30 +607,25 @@ public class FloatWindow {
             switch(event.getAction()){
                 case MotionEvent.ACTION_DOWN://在float悬浮窗状态下记录当前按下坐标和时间
                     if(!mIsOpen){
-                        LogUtils.d("TRACEBYCPB","FloatingWindow ACTION_DOWN is called");
                         down(event);
                     }
                     break;
                 case MotionEvent.ACTION_MOVE://在float悬浮窗状态下移动悬浮窗
                     if(!mIsOpen){
-                        LogUtils.d("TRACEBYCPB","FloatingWindow ACTION_MOVE is called");
                         move(event);
                     }
                     break;
                 case MotionEvent.ACTION_UP://在float悬浮窗状态下如果点击图标则弹出menu，否则则靠着边沿。
                     if(!mIsOpen){
-                        LogUtils.d("TRACEBYCPB","FloatingWindow ACTION_UP is called");
                         up(event);
                     }
                     break;
                 case MotionEvent.ACTION_OUTSIDE://点击任意外面的地方都会使得menu变为float悬浮窗状态。
                     if(mIsOpen){
-                        LogUtils.d("TRACEBYCPB","FloatingWindow ACTION_OUTSIDE is called");
                         turnoffMenu();
                     }
                     break;
                 default:
-                    LogUtils.d("TRACEBYCPB","FloatingWindow DEFAULT is called");
                     break;
             }
             return false;

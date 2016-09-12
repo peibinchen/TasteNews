@@ -5,13 +5,13 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/primary_light</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/primary_light</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -33,6 +33,64 @@
     <style name="weacher_weather">
         <item name="android:textSize">16.0sp</item>
         <item name="android:textColor">@color/icons</item>
+    </style>
+
+    <style name="MenuButtonsStyle">
+        <item name="fab_size">mini</item>
+        <item name="fab_showAnimation">@anim/jump_from_down</item>
+        <item name="fab_hideAnimation">@anim/jump_to_down</item>
+        <item name="fab_shadowColor">#444</item>
+        <item name="fab_colorNormal">#FFB805</item>
+        <item name="fab_colorPressed">#F2AB00</item>
+        <item name="fab_colorRipple">#D99200</item>
+    </style>
+
+    <style name="DayStyle" parent="AppTheme.NoActionBar.Translucent">
+        <item name="colorPrimary">@color/taste_day_primary</item>
+        <item name="colorPrimaryDark">@color/taste_day_primary_dark</item>
+        <item name="colorAccent">@color/taste_day_primary_accent</item>
+        <item name="colorBackground">@color/taste_day_background</item>
+        <item name="colorRootBackground">@color/taste_day_root_background</item>
+        <item name="colorQuestionAreaBackground">@color/taste_day_question_area_background</item>
+        <item name="colorDetailBackground">@color/taste_day_detail_background</item>
+        <item name="colorText">@color/taste_day_text</item>
+        <item name="colorTextPrimary">@color/taste_day_second_text</item>
+        <item name="colorHeader">@color/taste_day_header</item>
+        <item name="colorFooter">@color/taste_day_footer</item>
+        <item name="colorTitleBar">@color/taste_day_primary</item>
+        <item name="colorTab">@color/taste_day_primary</item>
+    </style>
+
+    <style name="NightStyle" parent="AppTheme.NoActionBar.Translucent">
+        <item name="colorPrimary">@color/taste_night_primary</item>
+        <item name="colorAccent">@color/taste_night_primary_accent</item>
+        <item name="colorPrimaryDark">@color/taste_night_primary_dark</item>
+        <item name="colorBackground">@color/taste_night_background</item>
+        <item name="colorRootBackground">@color/taste_night_root_background</item>
+        <item name="colorQuestionAreaBackground">@color/taste_night_question_area_background</item>
+        <item name="colorDetailBackground">@color/taste_night_detail_background</item>
+        <item name="colorText">@color/taste_night_text</item>
+        <item name="colorTextPrimary">@color/taste_night_second_text</item>
+        <item name="colorHeader">@color/taste_night_header</item>
+        <item name="colorFooter">@color/taste_night_footer</item>
+        <item name="colorTitleBar">@color/taste_night_background</item>
+        <item name="colorTab">@color/taste_night_background</item>
+    </style>
+
+    <style name="BlueStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorPrimary">@color/taste_blue_primary</item>
+        <item name="colorPrimaryDark">@color/taste_blue_primary_dark</item>
+        <item name="colorAccent">@color/taste_blue_primary_accent</item>
+        <item name="colorBackground">@color/taste_blue_background</item>
+        <item name="colorRootBackground">@color/taste_blue_root_background</item>
+        <item name="colorQuestionAreaBackground">@color/taste_blue_question_area_background</item>
+        <item name="colorDetailBackground">@color/taste_blue_detail_background</item>
+        <item name="colorText">@color/taste_blue_text</item>
+        <item name="colorTextPrimary">@color/taste_blue_second_text</item>
+        <item name="colorHeader">@color/taste_blue_header</item>
+        <item name="colorFooter">@color/taste_blue_footer</item>
+        <item name="colorTitleBar">@color/taste_blue_background</item>
+        <item name="colorTab">@color/taste_blue_background</item>
     </style>
 
 </resources>

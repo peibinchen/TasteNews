@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/met_comment_to_question"
+            android:hint="@string/add_comment"
+            android:gravity="top|center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:met_hideUnderline = "true"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/fbt_comment_submit"
+        android:layout_margin="10dp"
+        android:layout_width="120dp"
+        android:layout_gravity="center|bottom"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:fb_borderColor="#fdfdfd"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_focusColor="#39a3ef"
+        fancy:fb_fontIconResource="&#xf054;"
+        fancy:fb_iconPosition="right"
+        fancy:fb_radius="0dp"
+        fancy:fb_text="提交"
+        fancy:fb_textColor="#ffffff"
+        fancy:fb_ghost="true"/>
+</LinearLayout>

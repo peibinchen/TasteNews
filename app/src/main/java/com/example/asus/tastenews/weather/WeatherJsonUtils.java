@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.WeatherBean;
+import com.example.asus.tastenews.utils.LogUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -11,7 +12,7 @@ import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.asus.tastenews.utils.LogUtils;
+
 /**
  * Created by ASUS on 2016/5/29.
  */
@@ -19,8 +20,11 @@ public class WeatherJsonUtils {
 
     public static String getCity(String json){
         LogUtils.d("TAGGGGGG","json is " + json);
+//        JsonReader reader = new JsonReader(new StringReader(json));
+//        reader.setLenient(true);
+        String json2 = json.trim();
         JsonParser parser = new JsonParser();
-        JsonObject object = parser.parse(json).getAsJsonObject();
+        JsonObject object = parser.parse(json2).getAsJsonObject();
         JsonElement status = object.get("status");
         if(status != null && "OK".equals(status.getAsString())){
             JsonObject result = object.getAsJsonObject("result");
@@ -73,7 +77,7 @@ public class WeatherJsonUtils {
         return bean;
     }
 
-    public static int getWeatherImage(String weather){
+    public static int getWeatherImage(String weather) {
         if (weather.equals("多云") || weather.equals("多云转阴") || weather.equals("多云转晴")) {
             return R.mipmap.biz_plugin_weather_duoyun;
         } else if (weather.equals("中雨") || weather.equals("中到大雨")) {
@@ -106,7 +110,7 @@ public class WeatherJsonUtils {
             return R.mipmap.biz_plugin_weather_xiaoxue;
         } else if (weather.equals("小雨")) {
             return R.mipmap.biz_plugin_weather_xiaoyu;
-        } else if (weather.equals("阴")) {
+        } else if (weather.contains("阴")) {
             return R.mipmap.biz_plugin_weather_yin;
         } else if (weather.equals("雨夹雪")) {
             return R.mipmap.biz_plugin_weather_yujiaxue;
@@ -114,6 +118,8 @@ public class WeatherJsonUtils {
             return R.mipmap.biz_plugin_weather_zhenxue;
         } else if (weather.equals("中雪")) {
             return R.mipmap.biz_plugin_weather_zhongxue;
+        } else if (weather.contains("雨")) {
+            return R.mipmap.biz_plugin_weather_xiaoyu;
         } else {
             return R.mipmap.biz_plugin_weather_duoyun;
         }

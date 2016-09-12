@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <com.example.asus.tastenews.ui.StereoView
+        android:background="#000000"
+        android:id="@+id/stero_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+        <LinearLayout
+            android:id="@+id/per_layout"
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+        />
+
+        <LinearLayout
+            android:background="#375bfc"
+            android:id="@+id/current_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            />
+
+        <LinearLayout
+            android:background="#000000"
+            android:id="@+id/next_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            />
+    </com.example.asus.tastenews.ui.StereoView>
+
+    <ProgressBar
+        android:id="@+id/stereo_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>

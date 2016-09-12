@@ -1,21 +1,14 @@
 package com.example.asus.tastenews.about.widget;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.example.asus.tastenews.R;
-import com.example.asus.tastenews.beans.WechatIInfoBean;
-import com.example.asus.tastenews.network.NetworkResolver;
-import com.example.asus.tastenews.ui.FloatingMenu.ArcMenu;
-import com.example.asus.tastenews.utils.LogUtils;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by ASUS on 2016/6/1.
@@ -25,30 +18,77 @@ import java.util.Map;
  * 这种情况下，就不能只是根据list来进行对应类的生成，
  * 而应该将整个json分成多个类，最后通过总的一个类传递到retrofit中
  */
-public class AboutFragment extends Fragment {
-    private final String APP_KEY = "f3369c472eeae6d409340454358b7b61";
+public class AboutFragment extends Fragment{
+//        implements BluetoothHelper.BluetoothCallback{
+//    private BluetoothHelper mBluetoothHelper;
+    private ProgressBar mProgressBar;
+
+
+//    @Override
+//    public void beginToDiscover() {
+//        mProgressBar.setVisibility(View.VISIBLE);
+//    }
+//
+//    @Override
+//    public void finishDiscover(List<?> result) {
+//        mProgressBar.setVisibility(View.GONE);
+//        mBluetoothHelper.connectToDevice(result.size()-1);
+//    }
+//
+//    @Override
+//    public void read(String message) {
+//
+//    }
+//
+//    @Override
+//    public void write(String message) {
+//
+//    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        Map params = new HashMap();//请求参数
-        params.put("pno","");//当前页数，默认1
-        params.put("ps","");//每页返回条数，最大100，默认20
-        params.put("key",APP_KEY);//应用APPKEY(应用详细页查询)
-        params.put("dtype","");//返回数据的格式,xml或json，默认json
+    public void onCreate(Bundle savedInstance){
+        super.onCreate(savedInstance);
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.fragment_about, null);
+//        Button button = (Button)view.findViewById(R.id.server_bt);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mBluetoothHelper.sendMessage("this is successful");
+//            }
+//        });
+//        mProgressBar = (ProgressBar)view.findViewById(R.id.progress_wait);
+//        mBluetoothHelper = new BluetoothHelper(getContext(),this);
+//        return view;
 
-        NetworkResolver.Callback callback = new NetworkResolver.Callback() {
-            @Override
-            public void onSuccess(WechatIInfoBean object) {
-                for(int i = 0;i<object.getResult().getList().size();i++){
-                    LogUtils.d("RETR"," i = " + i + "   " + object.getResult().getList().get(i).getTitle());
-                }
-            }
+        View view = inflater.inflate(R.layout.fragment_test,container,false);
 
-            @Override
-            public void onFailure(Throwable e) {
+        return view;
+    }
 
-            }
-        };
-        NetworkResolver.getResponse("http://v.juhe.cn/weixin/",params,callback);
-        return inflater.inflate(R.layout.fragment_about, null);
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+//        mBluetoothHelper.onResume();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+//        mBluetoothHelper.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        mBluetoothHelper.onActivityResult(requestCode,resultCode,data);
     }
 }

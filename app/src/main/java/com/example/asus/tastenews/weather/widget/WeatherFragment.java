@@ -14,7 +14,8 @@ import android.widget.TextView;
 
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.application.NewsApplication;
-import com.example.asus.tastenews.beans.WeatherBean;
+import com.example.asus.tastenews.beans.WeatherBeanPackage.Weather_;
+import com.example.asus.tastenews.utils.WeatherUtils;
 import com.example.asus.tastenews.weather.presenter.WeatherPresenter;
 import com.example.asus.tastenews.weather.presenter.WeatherPresenterImpl;
 import com.example.asus.tastenews.weather.view.WeatherView;
@@ -40,7 +41,6 @@ public class WeatherFragment extends Fragment implements WeatherView {
     private LinearLayout mWeatherLayout;
     private LinearLayout mWeatherContentLayout;
     private FrameLayout mRootLayout;
-
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -49,7 +49,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_weather,null);
+        View view = inflater.inflate(R.layout.fragment_weather,container,false);
         mTodayTV = (TextView)view.findViewById(R.id.today);
         mCityTV = (TextView)view.findViewById(R.id.city);
         mTodayWeather = (TextView)view.findViewById(R.id.weather);
@@ -62,7 +62,6 @@ public class WeatherFragment extends Fragment implements WeatherView {
         mRootLayout = (FrameLayout)view.findViewById(R.id.root_layout);
 
         mWeatherPresenter.loadWeatherData();
-
         return view;
     }
 
@@ -112,9 +111,9 @@ public class WeatherFragment extends Fragment implements WeatherView {
     }
 
     @Override
-    public void setWeatherData(List<WeatherBean> lists){
-        List<WeatherBean>adapterList = new ArrayList<>();
-        for(WeatherBean bean : lists){
+    public void setWeatherData(List<Weather_> lists){
+        List<Weather_>adapterList = new ArrayList<>();
+        for(Weather_ bean : lists){
             LogUtils.d("TAGGGGGG","getActivity is " + getActivity());
             View view = LayoutInflater.from(NewsApplication.getNewsContext()).inflate(R.layout.item_weather,null,false);
             TextView dateTV = (TextView)view.findViewById(R.id.date);
@@ -124,10 +123,10 @@ public class WeatherFragment extends Fragment implements WeatherView {
             TextView weather = (TextView)view.findViewById(R.id.weather);
 
             dateTV.setText(bean.getDate());
-            weatherTempTV.setText(bean.getTemperature());
-            weatherImageIV.setImageResource(bean.getImageRes());
-            windTV.setText(bean.getWind());
-            weather.setText(bean.getWeather());
+            weatherTempTV.setText(bean.getInfo().getDay().get(2));
+            weatherImageIV.setImageResource(WeatherUtils.getWeatherImage(bean.getInfo().getDay().get(1)));
+            windTV.setText(bean.getInfo().getDay().get(4));
+            weather.setText(bean.getInfo().getDay().get(1));
             mWeatherContentLayout.addView(view);
             adapterList.add(bean);
         }
@@ -135,6 +134,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
 
     @Override
     public void showErrorToast(String msg){
-        Snackbar.make(getActivity().findViewById(R.id.drawer_layout),msg,Snackbar.LENGTH_SHORT).show();
+        LogUtils.d("WEATHER","msg is " + msg);
+        Snackbar.make(getActivity().findViewById(R.id.drawer_layout),msg,Snackbar.LENGTH_LONG).show();
     }
 }

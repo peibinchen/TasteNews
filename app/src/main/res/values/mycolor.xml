@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorBackground" format="color"/>
+    <attr name="colorRootBackground" format="color"/>
+    <attr name="colorDetailBackground" format="color"/>
+    <attr name="colorQuestionBackground" format="color"/>
+    <attr name="colorQuestionAreaBackground" format="color"/>
+    <attr name="colorText" format="color"/>
+    <attr name="colorTextPrimary" format="color"/>
+    <attr name="colorHeader" format="color"/>
+    <attr name="colorFooter" format="color"/>
+    <attr name="colorTitleBar" format="color"/>
+    <attr name="colorTab" format="color"/>
+</resources>

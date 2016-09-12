@@ -1,6 +1,7 @@
 package com.example.asus.tastenews.weather.view;
 
 import com.example.asus.tastenews.beans.WeatherBean;
+import com.example.asus.tastenews.beans.WeatherBeanPackage.Weather_;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface WeatherView {
     void setWind(String wind);
     void setWeather(String weather);
     void setWeatherImage(int res);
-    void setWeatherData(List<WeatherBean> lists);
+    void setWeatherData(List<Weather_> lists);
 
     void showErrorToast(String msg);
 }

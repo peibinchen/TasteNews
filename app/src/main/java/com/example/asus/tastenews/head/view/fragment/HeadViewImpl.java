@@ -1,8 +1,6 @@
 package com.example.asus.tastenews.head.view.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +10,6 @@ import android.widget.GridView;
 import android.widget.ProgressBar;
 
 import com.example.asus.tastenews.R;
-import com.example.asus.tastenews.common.Urls;
 import com.example.asus.tastenews.head.presenter.HeadPresenter;
 import com.example.asus.tastenews.head.presenter.HeadPresenterImpl;
 
@@ -31,7 +28,7 @@ public class HeadViewImpl extends Fragment implements HeadView {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_head_select,null);
+        View view = inflater.inflate(R.layout.fragment_head_select,container,false);
         if(view == null)
             return null;
 

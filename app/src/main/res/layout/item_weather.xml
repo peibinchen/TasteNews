@@ -10,9 +10,9 @@
         style="@style/weacher_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="星期二" />
+        android:layout_marginBottom="12dp"/>
     <ImageView
+        android:contentDescription="@string/app_name"
         android:id="@+id/weatherImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="22℃-28℃" />
+        />
 
     <TextView
         android:id="@+id/wind"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="微风" />
+        />
 
     <TextView
         android:id="@+id/weather"
@@ -39,5 +39,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
-        android:text="阵雨转阴" />
+         />
 </LinearLayout>

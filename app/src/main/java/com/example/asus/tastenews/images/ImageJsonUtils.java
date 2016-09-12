@@ -4,6 +4,7 @@ import com.example.asus.tastenews.beans.ImageBean;
 import com.example.asus.tastenews.utils.JsonUtils;
 import com.example.asus.tastenews.utils.LogUtils;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -21,7 +22,8 @@ public class ImageJsonUtils {
         List<ImageBean>beans = new ArrayList<>();
         try{
             JsonParser parser = new JsonParser();
-            JsonArray jsonArray = parser.parse(res).getAsJsonArray();
+            JsonElement element = parser.parse(res).getAsJsonObject().get("showapi_res_body").getAsJsonObject().get("list");
+            JsonArray jsonArray = element.getAsJsonArray();
             for(int i=1;i<jsonArray.size();i++){
                 JsonObject jo = jsonArray.get(i).getAsJsonObject();
                 ImageBean news = JsonUtils.deserialize(jo,ImageBean.class);

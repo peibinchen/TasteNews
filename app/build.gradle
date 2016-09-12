@@ -1,6 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        /**
+         * 设置你的keystore相关
+         * demo中只是一个示例，使用时请根据实际情况进行配置
+         */
+        debug {
+            //keystore中key的别名
+            keyAlias 'cpbjustbegin'
+            //keystore中key的密码
+            keyPassword '18826077070'
+            //keystore的文件路径，可以使绝对路径也可以是相对路径
+            storeFile file('F:/android_something/tastenews.jks')
+            //keystore的密码
+            storePassword '18826077070'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
     useLibrary 'org.apache.http.legacy'
@@ -26,7 +42,12 @@ android {
     }
 
     buildTypes {
+        debug{
+            shrinkResources true
+            minifyEnabled false
+        }
         release {
+            shrinkResources true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -34,25 +55,33 @@ android {
 }
 
 dependencies {
-   // compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:multidex:1.0.1'
     compile project(':swipeback')
-    compile 'com.android.support:design:23.2.0'
+    compile 'com.android.support:design:24.1.1'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'org.sufficientlysecure:html-textview:1.3'
-    compile 'com.android.support:cardview-v7:23.2.0'
+    compile 'com.android.support:cardview-v7:24.1.1'
     compile 'com.github.medyo:fancybuttons:1.8.1'
-    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile files('libs/Bmob_Push_V0.9beta_20160520.jar')
     compile files('libs/BmobSDK_V3.4.7_0527.jar')
-
     compile 'io.reactivex:rxjava:x.y.z'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
     compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.zzhoujay.richtext:richtext:2.0.9'
+    compile 'com.loopeer.library:cardstack:1.0.1'
+    compile 'com.github.clans:fab:1.6.4'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile files('libs/Msc.jar')
+    compile files('libs/Sunflower.jar')
+    compile files('libs/AMap_Location_V2.7.0_20160726.jar')
 }

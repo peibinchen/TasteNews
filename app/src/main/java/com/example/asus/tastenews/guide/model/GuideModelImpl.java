@@ -3,9 +3,6 @@ package com.example.asus.tastenews.guide.model;
 import android.content.Context;
 
 import com.example.asus.tastenews.beans.UserBean;
-
-import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.listener.GetListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**

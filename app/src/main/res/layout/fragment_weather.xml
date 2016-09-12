@@ -26,14 +26,15 @@
                 style="@style/weacher_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="广州" />
+                 />
             <TextView
                 android:id="@+id/today"
                 style="@style/weacher_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:text="2016年5月29日 星期日" />
+                android:layout_marginStart="24dp"
+                 />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,6 +43,7 @@
             android:padding="12dp"
             android:orientation="horizontal">
             <ImageView
+                android:contentDescription="@string/app_name"
                 android:id="@+id/weatherImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="8dp">
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp">
 
                 <TextView
                     android:id="@+id/weatherTemp"
@@ -58,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="22℃-28℃" />
+                     />
 
                 <TextView
                     android:id="@+id/wind"
@@ -66,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="微风" />
+                     />
 
                 <TextView
                     android:id="@+id/weather"
@@ -74,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="阵雨转阴" />
+                     />
             </LinearLayout>
         </LinearLayout>
 

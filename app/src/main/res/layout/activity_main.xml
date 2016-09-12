@@ -19,7 +19,7 @@
             android:id="@+id/frame_content"
             android:layout_below="@+id/appbar"
             android:scrollbars="none"
-            android:elevation="5dp"
+            style="@style/elevation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
