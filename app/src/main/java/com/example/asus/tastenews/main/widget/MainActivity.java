@@ -1,6 +1,5 @@
 package com.example.asus.tastenews.main.widget;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -17,7 +16,6 @@ import com.example.asus.tastenews.about.widget.AboutFragment;
 import com.example.asus.tastenews.floatingwindow.widget.FloatingFragment;
 import com.example.asus.tastenews.guide.widget.GuideFragment;
 import com.example.asus.tastenews.images.widget.ImageFragment;
-import com.example.asus.tastenews.main.helper.ThemeSwitchHelper;
 import com.example.asus.tastenews.main.presenter.MainPresenter;
 import com.example.asus.tastenews.main.presenter.MainPresenterImpl;
 import com.example.asus.tastenews.main.view.MainView;
@@ -40,15 +38,9 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
     private NavigationView mNavigationView;
     private MainPresenter mMainPresenter;
     private SpeechRecognitionUtils mSpeechRecognition;
-    private boolean isListening = false;
-    private ThemeSwitchHelper mThemeSwitchHelper;
-    private OnThemeSwitchListener mOnThemeSwitchListener;
-    private final String TAG = MainActivity.class.getSimpleName();
+    private final String TAG = "dfasdfad";
 
-    public static final String THEME_NAVIGATION = "navigation_theme";
     public static final String THEME_BACKGROUND = "background_theme";
-    public static final String THEME_TEXT = "text_theme";
-    public static final String THEME_TEXT_SECOND = "text_second_theme";
     public static final String THEME_TAB = "tab_theme";
 
     @Override
@@ -62,10 +54,6 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
 
         init();
         switch2News();
-    }
-
-    public void setOnThemeSwitchListener(OnThemeSwitchListener listener){
-        mOnThemeSwitchListener = listener;
     }
 
     @Override
@@ -87,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
     }
 
     private void switchAccordingSpeech(String result){
+      LogUtils.d(TAG,"result is " + result);
         if(result.contains("新闻")||result.contains("新")||result.contains("闻")){
             switch2News();
             return;
@@ -117,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
         }
         if(result.contains("悬浮窗")||result.contains("悬")||result.contains("浮")||result.contains("窗")){
             switch2FloatingWindow();
-            return;
         }
     }
 
@@ -168,35 +156,8 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
           mSpeechRecognition.startSpeechRecognition(this, this);
           return true;
         }
-//        }else if(id == R.id.day_theme){
-//            setTheme(R.style.DayStyle);
-//            ((NewsApplication)(getApplication())).setMode(R.style.DayStyle);
-//            mThemeSwitchHelper.setThemeMode(ThemeSwitchHelper.THEME_MODE_DAY);
-//            refreshUI();
-//            return true;
-//        }else if(id == R.id.night_theme){
-//            setTheme(R.style.BlueStyle);
-//            ((NewsApplication)(getApplication())).setMode(R.style.BlueStyle);
-//            mThemeSwitchHelper.setThemeMode(ThemeSwitchHelper.THEME_MODE_NIGTH);
-//            refreshUI();
-//            return true;
-//        }
         return super.onOptionsItemSelected(item);
     }
-
-  /**
-   * 由于对UI设计不熟，因此只是当作练技术，未将换肤功能加入实际的app中。
-   */
-//  private void initTheme(){
-//        mThemeSwitchHelper = new ThemeSwitchHelper(this);
-//        if(mThemeSwitchHelper.isDay()){
-//            setTheme(R.style.DayStyle);
-//            ((NewsApplication)(getApplication())).setMode(R.style.DayStyle);
-//        }else{
-//            setTheme(R.style.BlueStyle);
-//            ((NewsApplication)(getApplication())).setMode(R.style.BlueStyle);
-//        }
-//    }
 
     private void init(){
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -212,36 +173,6 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
 
         SpeechUtility.createUtility(this, SpeechConstant.APPID +"=579db503");
         mSpeechRecognition = new SpeechRecognitionUtils();
-    }
-
-    private void refreshUI(){
-        TypedValue backgroundColor = new TypedValue();
-        TypedValue textColor= new TypedValue();
-        TypedValue textPrimaryColor = new TypedValue();
-        TypedValue headerColor = new TypedValue();
-        TypedValue footerColor = new TypedValue();
-        TypedValue titleBarColor = new TypedValue();
-        TypedValue tabColor = new TypedValue();
-        Resources.Theme theme = getTheme();
-        theme.resolveAttribute(R.attr.colorBackground,backgroundColor,true);
-        theme.resolveAttribute(R.attr.colorText,textColor,true);
-        theme.resolveAttribute(R.attr.colorTextPrimary,textPrimaryColor,true);
-        theme.resolveAttribute(R.attr.colorHeader,headerColor,true);
-        theme.resolveAttribute(R.attr.colorFooter,footerColor,true);
-        theme.resolveAttribute(R.attr.colorTitleBar,titleBarColor,true);
-        theme.resolveAttribute(R.attr.colorTab,tabColor,true);
-
-        mNavigationView.getHeaderView(0).setBackgroundResource(headerColor.resourceId);
-        mToolbar.setBackgroundResource(titleBarColor.resourceId);
-        mToolbar.setBackgroundColor(this.getResources().getColor(titleBarColor.resourceId));
-        if(mOnThemeSwitchListener != null){
-            HashMap<String,TypedValue> themes = new HashMap<>();
-            themes.put(THEME_BACKGROUND,backgroundColor);
-            themes.put(THEME_TEXT,textColor);
-            themes.put(THEME_TEXT_SECOND,textPrimaryColor);
-            themes.put(THEME_TAB,tabColor);
-            mOnThemeSwitchListener.switch2Theme(themes);
-        }
     }
 
     private void setupDrawerLayout(NavigationView navigationView){

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.QuestionTable;
@@ -64,11 +65,16 @@ public class NewsCommentMainFragment extends BaseFragment {
 
   @Override
   public void queryQuestionSuccess(List<QuestionTable> list) {
+    if(list.size() == 0){
+      Toast.makeText(getContext(),"暂无评论。",Toast.LENGTH_SHORT).show();
+      return;
+    }
     mQuestionAdapter.setDataSets(list);
   }
 
   @Override
   public void queryQuestionFailure(int errorCode, String message) {
+    Toast.makeText(getContext(),"评论区貌似出了点问题，请稍后再试。",Toast.LENGTH_SHORT).show();
     LogUtils.d(TAG, "errorCode = " + errorCode + " and message is " + message);
   }
 }

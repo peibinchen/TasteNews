@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
     <FrameLayout
-        android:fitsSystemWindows="true"
         android:id="@+id/frame_comment_content"
         android:scrollbars="none"
         style="@style/elevation"
