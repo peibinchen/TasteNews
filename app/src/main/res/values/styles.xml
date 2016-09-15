@@ -77,20 +77,4 @@
         <item name="colorTab">@color/taste_night_background</item>
     </style>
 
-    <style name="BlueStyle" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorPrimary">@color/taste_blue_primary</item>
-        <item name="colorPrimaryDark">@color/taste_blue_primary_dark</item>
-        <item name="colorAccent">@color/taste_blue_primary_accent</item>
-        <item name="colorBackground">@color/taste_blue_background</item>
-        <item name="colorRootBackground">@color/taste_blue_root_background</item>
-        <item name="colorQuestionAreaBackground">@color/taste_blue_question_area_background</item>
-        <item name="colorDetailBackground">@color/taste_blue_detail_background</item>
-        <item name="colorText">@color/taste_blue_text</item>
-        <item name="colorTextPrimary">@color/taste_blue_second_text</item>
-        <item name="colorHeader">@color/taste_blue_header</item>
-        <item name="colorFooter">@color/taste_blue_footer</item>
-        <item name="colorTitleBar">@color/taste_blue_background</item>
-        <item name="colorTab">@color/taste_blue_background</item>
-    </style>
-
 </resources>
