@@ -90,6 +90,10 @@ public class CommentToQuestionFragment extends BaseFragment{
 
   @Override
   public void queryAnswersSuccess(List<ReplyTable> list) {
+    if(list.size() == 0){
+      Toast.makeText(getContext(),"暂时无人评论",Toast.LENGTH_SHORT).show();
+      return;
+    }
     mReplyTables = list;
     mReplyAdapter.setDataSets(list);
   }
