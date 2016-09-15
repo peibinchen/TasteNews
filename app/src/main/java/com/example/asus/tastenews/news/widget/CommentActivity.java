@@ -2,6 +2,7 @@ package com.example.asus.tastenews.news.widget;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.NewsBean;
@@ -20,17 +21,12 @@ public class CommentActivity extends AppCompatActivity implements BaseFragment.Q
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        initTheme();
         setContentView(R.layout.activity_comment);
+        setSupportActionBar((Toolbar)findViewById(R.id.toolbar));
         int type = getIntent().getIntExtra(COMMENT_TYPE,COMMENT_TYPE_ASK);
         mNewsBean = (NewsBean)getIntent().getSerializableExtra("news");
         switch2Fragment(type);
     }
-
-//    private void initTheme(){
-//        int mode = ((NewsApplication)getApplication()).getMode();
-//        setTheme(mode);
-//    }
 
     private void switch2Fragment(int type){
         switch(type){

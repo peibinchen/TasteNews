@@ -6,22 +6,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.asus.tastenews.R;
-import com.example.asus.tastenews.main.widget.MainActivity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * 新闻界面：包括四个部分，用TabLayout和ViewPager管理
  */
-public class NewsFragment extends Fragment implements MainActivity.OnThemeSwitchListener{
+public class NewsFragment extends Fragment{
     public final static int NEWS_TYPE_TOP = 0;
     public final static int NEWS_TYPE_NBA = 1;
     public final static int NEWS_TYPE_JOKES = 2;
@@ -113,28 +110,6 @@ public class NewsFragment extends Fragment implements MainActivity.OnThemeSwitch
         public CharSequence getPageTitle(int position){
             return mFragmentTitles.get(position);
         }
-    }
-
-    @Override
-    public void switch2Theme(HashMap<String, TypedValue> themes) {
-        if(mMyPagerAdapter == null || mMyPagerAdapter.getFragments() == null || mMyPagerAdapter.getFragments().size() == 0){
-            return;
-        }
-
-        mTabLayout.setBackgroundResource(themes.get(MainActivity.THEME_TAB).resourceId);
-        mViewPager.setBackgroundResource(themes.get(MainActivity.THEME_BACKGROUND).resourceId);
-        List<Fragment>fragments = mMyPagerAdapter.getFragments();
-        NewsListFragment listFragment;
-        for(Fragment fragment : fragments){
-            if(fragment instanceof NewsListFragment){
-                listFragment = (NewsListFragment)fragment;
-                listFragment.notifyThemeChange(themes);
-            }
-        }
-    }
-
-    public interface OnThemeChangeListener{
-        void notifyThemeChange(HashMap<String,TypedValue>themes);
     }
 }
 

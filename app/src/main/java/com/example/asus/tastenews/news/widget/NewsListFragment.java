@@ -11,7 +11,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,13 +26,12 @@ import com.example.asus.tastenews.news.view.NewsView;
 import com.example.asus.tastenews.utils.LogUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by ASUS on 2016/5/25.
  */
-public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshLayout.OnRefreshListener,NewsFragment.OnThemeChangeListener{
+public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshLayout.OnRefreshListener{
 
   private static final String TAG = "NewsListFragment";
 
@@ -49,7 +47,6 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
   private int mType = NewsFragment.NEWS_TYPE_TOP;
   private int pageIndex = 0;
   private boolean isFirstInApp = true;
-  private int count = 0;
 
   public static NewsListFragment newInstance(int type){
     NewsListFragment fragment = new NewsListFragment();
@@ -165,14 +162,6 @@ public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshL
   @Override
   public void hideProgress(){
     mSwipeRefreshWidget.setRefreshing(false);
-  }
-
-  @Override
-  public void notifyThemeChange(HashMap<String, TypedValue> themes) {
-    if(mAdapter == null){
-      return;
-    }
-    mAdapter.setThemes(themes);
   }
 
   @Override
