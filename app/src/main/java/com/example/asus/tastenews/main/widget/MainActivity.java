@@ -6,7 +6,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -28,7 +27,6 @@ import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.sunflower.FlowerCollector;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements MainView,SpeechRecognitionUtils.SpeechRecognitionCallback {
 
@@ -272,9 +270,5 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
         FlowerCollector.onPageEnd(TAG);
         FlowerCollector.onPause(this);
         super.onPause();
-    }
-
-    public interface OnThemeSwitchListener{
-        void switch2Theme(HashMap<String,TypedValue> themes);
     }
 }
