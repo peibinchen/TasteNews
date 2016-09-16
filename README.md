@@ -26,7 +26,7 @@ SimpleNews的github地址：https://github.com/liuling07/SimpleNews
 - MVP架构
 - OkHttp
 - Rxjava
-- Piaso
+- Glide
 
 
 
