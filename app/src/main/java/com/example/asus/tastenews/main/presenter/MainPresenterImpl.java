@@ -4,7 +4,7 @@ import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.main.view.MainView;
 
 /**
- * Created by ASUS on 2016/5/22.
+ * Created by SomeOneInTheWorld on 2016/5/22.
  */
 public class MainPresenterImpl implements MainPresenter{
     private MainView mMainView;

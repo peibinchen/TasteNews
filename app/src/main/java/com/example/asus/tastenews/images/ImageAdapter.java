@@ -17,7 +17,7 @@ import com.example.asus.tastenews.utils.ToolUtils;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/29.
+ * Created by SomeOneInTheWorld on 2016/5/29.
  */
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ItemViewHolder>{
 

@@ -8,7 +8,7 @@ import com.example.asus.tastenews.images.view.ImageView;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/29.
+ * Created by SomeOneInTheWorld on 2016/5/29.
  */
 public class ImagePresenterImpl implements ImagePresenter,ImageModelImpl.OnLoadImageListListener{
 

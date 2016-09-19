@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 /**
- * Created by ASUS on 2016/7/17.
+ * Created by SomeOneInTheWorld on 2016/7/17.
  * 说明：这个是弹幕控件，使用线程重绘技术来实现view的移动，这里其实还可以用动画实现
  * 立flag：自己实现一遍用动画实现的弹幕控件，并且与线程重绘比较。
  */

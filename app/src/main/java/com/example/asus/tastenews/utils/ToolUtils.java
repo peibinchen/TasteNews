@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Created by ASUS on 2016/5/28.
+ * Created by SomeOneInTheWorld on 2016/5/28.
  */
 public class ToolUtils {
     public static final int getHeightInPx(Context context) {

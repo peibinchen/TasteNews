@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/8/28.
+ * Created by SomeOneInTheWorld on 2016/8/28.
  */
 public class CommentToQuestionFragment extends BaseFragment{
   private RecyclerView mRecyclerView;

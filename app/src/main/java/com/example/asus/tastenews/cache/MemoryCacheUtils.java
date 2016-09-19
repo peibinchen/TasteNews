@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.util.LruCache;
 
 /**
- * Created by ASUS on 2016/7/19.
+ * Created by SomeOneInTheWorld on 2016/7/19.
  */
 public class MemoryCacheUtils {
     //立个flag：：LruCache的原理一定要看

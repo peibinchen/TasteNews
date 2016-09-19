@@ -18,7 +18,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 /**
- * Created by ASUS on 2016/8/25.
+ * Created by SomeOneInTheWorld on 2016/8/25.
  */
 public class CommentAddFragment extends BaseFragment{
     private MaterialEditText mCommentMET;

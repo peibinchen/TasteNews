@@ -3,7 +3,7 @@ package com.example.asus.tastenews.news.model;
 import com.example.asus.tastenews.beans.UserBean;
 
 /**
- * Created by ASUS on 2016/5/24.
+ * Created by SomeOneInTheWorld on 2016/5/24.
  */
 public interface NewsModel {
 

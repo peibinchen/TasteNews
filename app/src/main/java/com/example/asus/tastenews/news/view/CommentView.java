@@ -8,7 +8,7 @@ import com.example.asus.tastenews.beans.ReplyToReplyerTable;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/8/24.
+ * Created by SomeOneInTheWorld on 2016/8/24.
  */
 public interface CommentView {
     void showProgress();

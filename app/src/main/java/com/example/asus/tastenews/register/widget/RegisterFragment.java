@@ -20,7 +20,7 @@ import com.example.asus.tastenews.register.view.RegisterView;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 /**
- * Created by ASUS on 2016/6/4.
+ * Created by SomeOneInTheWorld on 2016/6/4.
  */
 
 public class RegisterFragment extends Fragment implements RegisterView {

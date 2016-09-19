@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 /**
- * Created by ASUS on 2016/7/1.
+ * Created by SomeOneInTheWorld on 2016/7/1.
  */
 public class BaseFloatingActivity extends AppCompatActivity{
 

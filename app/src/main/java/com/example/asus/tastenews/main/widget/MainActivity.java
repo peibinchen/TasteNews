@@ -28,6 +28,10 @@ import com.iflytek.sunflower.FlowerCollector;
 
 import java.lang.reflect.Method;
 
+/**
+ * Create By SomeOneInTheWorld and the MVP through comes from liuling,
+ * and the SimpleNews he puts on github is great!
+ */
 public class MainActivity extends AppCompatActivity implements MainView,SpeechRecognitionUtils.SpeechRecognitionCallback {
 
     private Toolbar mToolbar;

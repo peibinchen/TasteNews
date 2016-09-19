@@ -20,7 +20,7 @@ import com.example.asus.tastenews.utils.LogUtils;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/8/23.
+ * Created by SomeOneInTheWorld on 2016/8/23.
  */
 
 //因为showProgressBar和hideProgressBar应该由子类决定，

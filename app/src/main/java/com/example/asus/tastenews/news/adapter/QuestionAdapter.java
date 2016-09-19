@@ -26,7 +26,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
 
 
 /**
- * Created by ASUS on 2016/8/24.
+ * Created by SomeOneInTheWorld on 2016/8/24.
  */
 public class QuestionAdapter<T> extends RecyclerView.Adapter<QuestionAdapter<T>.MyViewHolder> {
   private LayoutInflater mInflater;

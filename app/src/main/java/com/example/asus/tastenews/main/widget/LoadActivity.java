@@ -11,13 +11,12 @@ import android.view.WindowManager;
 import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.UserBean;
 import com.example.asus.tastenews.guide.widget.GuideFragment;
-import com.example.asus.tastenews.news.widget.NewsFragment;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobConfig;
 
 /**
- * Created by ASUS on 2016/6/5.
+ * Created by SomeOneInTheWorld on 2016/6/5.
  */
 public class LoadActivity extends AppCompatActivity {
 

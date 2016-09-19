@@ -8,7 +8,7 @@ import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.cache.LocalCacheUtils;
 
 /**
- * Created by ASUS on 2016/5/26.
+ * Created by SomeOneInTheWorld on 2016/5/26.
  */
 public class ImageLoaderUtils {
     private static LocalCacheUtils mLocalCacheUtils = new LocalCacheUtils();

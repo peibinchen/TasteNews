@@ -3,7 +3,7 @@ package com.example.asus.tastenews.beans;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by ASUS on 2016/6/10.
+ * Created by SomeOneInTheWorld on 2016/6/10.
  */
 public class CommentBean extends BmobObject {
     private String Content;

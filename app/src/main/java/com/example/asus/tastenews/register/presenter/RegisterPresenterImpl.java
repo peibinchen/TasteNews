@@ -8,7 +8,7 @@ import com.example.asus.tastenews.register.model.RegisterModelImpl;
 import com.example.asus.tastenews.register.view.RegisterView;
 
 /**
- * Created by ASUS on 2016/6/4.
+ * Created by SomeOneInTheWorld on 2016/6/4.
  */
 public class RegisterPresenterImpl implements RegisterPresenter,RegisterModelImpl.OnRegisterListener {
 

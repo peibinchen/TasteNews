@@ -5,22 +5,16 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.example.asus.tastenews.R;
-import com.example.asus.tastenews.application.NewsApplication;
 import com.example.asus.tastenews.utils.LogUtils;
-import com.squareup.okhttp.HttpUrl;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by ASUS on 2016/7/19.
+ * Created by SomeOneInTheWorld on 2016/7/19.
  */
 public class NetworkCacheUtils {
     private MemoryCacheUtils mMemoryCacheUtils;
@@ -102,7 +96,8 @@ public class NetworkCacheUtils {
                 e.printStackTrace();
             }finally{
                 try{
-                    connection.disconnect();
+                    if(connection != null)
+                        connection.disconnect();
                 }catch(Exception e){
                     e.printStackTrace();
                 }

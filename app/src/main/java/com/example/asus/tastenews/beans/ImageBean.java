@@ -3,7 +3,7 @@ package com.example.asus.tastenews.beans;
 import java.io.Serializable;
 
 /**
- * Created by ASUS on 2016/5/29.
+ * Created by SomeOneInTheWorld on 2016/5/29.
  */
 public class ImageBean implements Serializable {
 

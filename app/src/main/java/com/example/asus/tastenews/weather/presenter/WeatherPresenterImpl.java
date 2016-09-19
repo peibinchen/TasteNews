@@ -2,10 +2,6 @@ package com.example.asus.tastenews.weather.presenter;
 
 import android.content.Context;
 
-import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationListener;
-import com.example.asus.tastenews.R;
-import com.example.asus.tastenews.beans.WeatherBean;
 import com.example.asus.tastenews.beans.WeatherBeanPackage.Info_;
 import com.example.asus.tastenews.beans.WeatherBeanPackage.Weather_;
 import com.example.asus.tastenews.utils.LogUtils;
@@ -18,7 +14,7 @@ import com.example.asus.tastenews.weather.view.WeatherView;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/30.
+ * Created by SomeOneInTheWorld on 2016/5/30.
  */
 public class WeatherPresenterImpl implements WeatherPresenter,WeatherModelImpl.LoadWeatherListener {
 

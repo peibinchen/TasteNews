@@ -11,7 +11,7 @@ import com.example.asus.tastenews.utils.OkHttpUtils;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/29.
+ * Created by SomeOneInTheWorld on 2016/5/29.
  */
 public class ImageModelImpl implements ImageModel{
     private final String TAG = "ImageModelImpllll";

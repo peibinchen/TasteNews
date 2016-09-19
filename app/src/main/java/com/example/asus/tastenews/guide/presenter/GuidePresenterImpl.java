@@ -8,7 +8,7 @@ import com.example.asus.tastenews.guide.model.GuideModelImpl;
 import com.example.asus.tastenews.guide.view.GuideView;
 
 /**
- * Created by ASUS on 2016/6/3.
+ * Created by SomeOneInTheWorld on 2016/6/3.
  */
 public class GuidePresenterImpl implements GuidePresenter,GuideModelImpl.OnCheckUserListener{
     private GuideView mView;

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/30.
+ * Created by SomeOneInTheWorld on 2016/5/30.
  */
 public class WeatherFragment extends Fragment implements WeatherView {
 

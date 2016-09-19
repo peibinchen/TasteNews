@@ -1,7 +1,6 @@
 package com.example.asus.tastenews.news.presenter;
 
 import android.content.Context;
-import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
 import com.example.asus.tastenews.beans.CommentBean;
@@ -14,7 +13,7 @@ import com.example.asus.tastenews.news.view.NewsDetailView;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/28.
+ * Created by SomeOneInTheWorld on 2016/5/28.
  */
 public class NewsDetailPresenterImpl implements NewsDetailPresenter,NewsModelImpl.OnLoadNewsDetailListener,NewsModelImpl.OnCommentDetailNewsListener{
 

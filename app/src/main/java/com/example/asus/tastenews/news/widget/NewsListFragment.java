@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/25.
+ * Created by SomeOneInTheWorld on 2016/5/25.
  */
 public class NewsListFragment extends Fragment implements NewsView,SwipeRefreshLayout.OnRefreshListener{
 

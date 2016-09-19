@@ -20,7 +20,7 @@ import cn.bmob.v3.listener.SQLQueryListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
- * Created by ASUS on 2016/5/24.
+ * Created by SomeOneInTheWorld on 2016/5/24.
  */
 public class NewsModelImpl implements NewsModel {
 

@@ -110,6 +110,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
+        android:elevation="6dp"
         fab:menu_openDirection="down">
 
         <com.github.clans.fab.FloatingActionButton
