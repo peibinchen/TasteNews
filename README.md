@@ -8,23 +8,24 @@ SimpleNews的github地址：https://github.com/liuling07/SimpleNews
 应用截图
 ---
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/main.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/main.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/left.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/left.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/detail.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/detail.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/detail_2.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/detail_2.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/bottom_comment.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/bottom_comment.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/comment_main.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/comment_main.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/comment.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/comment.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/float.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/float.png" width="50%" height="50%">
 
-![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/voice.png)
+<img src="https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/voice.png" width="50%" height="50%">
+
 
 
 
