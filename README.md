@@ -5,6 +5,29 @@ MVP架构的news，前期借鉴了SimpleNews的代码，后期进行了相应的
 SimpleNews的github地址：https://github.com/liuling07/SimpleNews
 
 
+应用截图
+---
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/main.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/left.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/detail.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/detail_2.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/bottom_comment.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/comment_main.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/comment.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/float.png)
+
+![image](https://github.com/SomeOneIntheWorld/TasteNews/blob/master/app/src/main/java/com/example/asus/tastenews/screenshot/voice.png)
+
+
+
 完善的功能：
 -------
 
