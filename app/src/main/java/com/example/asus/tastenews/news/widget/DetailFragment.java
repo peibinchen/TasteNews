@@ -11,7 +11,7 @@ import com.example.asus.tastenews.beans.ReplyTable;
 import com.example.asus.tastenews.news.presenter.CommentPresenter;
 
 /**
- * Created by ASUS on 2016/8/28.
+ * Created by SomeOneInTheWorld on 2016/8/28.
  */
 public class DetailFragment extends BaseFragment {
   private TextView mTextView;

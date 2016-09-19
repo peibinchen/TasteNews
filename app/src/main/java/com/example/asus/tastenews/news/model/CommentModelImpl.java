@@ -18,7 +18,7 @@ import cn.bmob.v3.listener.SQLQueryListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
- * Created by ASUS on 2016/8/24.
+ * Created by SomeOneInTheWorld on 2016/8/24.
  */
 public class CommentModelImpl implements CommentModel {
     private Context mContext;

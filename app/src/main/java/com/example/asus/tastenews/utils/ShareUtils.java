@@ -6,7 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 
 /**
- * Created by ASUS on 2016/8/8.
+ * Created by SomeOneInTheWorld on 2016/8/8.
  */
 public class ShareUtils implements SensorEventListener {
     private Context mContext;

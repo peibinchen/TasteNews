@@ -5,7 +5,7 @@ import com.example.asus.tastenews.beans.ImageBean;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/29.
+ * Created by SomeOneInTheWorld on 2016/5/29.
  */
 public interface ImageView {
     void addImages(List<ImageBean> images);

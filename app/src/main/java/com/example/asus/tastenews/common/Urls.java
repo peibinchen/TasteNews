@@ -1,7 +1,7 @@
 package com.example.asus.tastenews.common;
 
 /**
- * Created by ASUS on 2016/5/25.
+ * Created by SomeOneInTheWorld on 2016/5/25.
  */
 public class Urls {
     //http://c.m.163.com/nc/article/headline/T1348647909107/0-5.html  头条

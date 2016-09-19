@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/7/1.
+ * Created by SomeOneInTheWorld on 2016/7/1.
  */
 public class NewsTagService extends Service
         implements FloatingWindowView,NewsTagsAdapter.OnFloatWindowClose{

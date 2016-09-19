@@ -5,7 +5,7 @@ import com.example.asus.tastenews.beans.NewsBean;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/7/1.
+ * Created by SomeOneInTheWorld on 2016/7/1.
  */
 public interface FloatingWindowView {
     void getNews(List<NewsBean> newsList);

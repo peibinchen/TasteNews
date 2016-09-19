@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * Created by ASUS on 2016/7/18.
+ * Created by SomeOneInTheWorld on 2016/7/18.
  */
 public class FloatingWindowPresenterImpl
         implements FloatingWindowPresenter,FloatingWindowModelImpl.OnLoadNewsListListener,FloatingWindowModelImpl.OnLoadNewsDetailListener {

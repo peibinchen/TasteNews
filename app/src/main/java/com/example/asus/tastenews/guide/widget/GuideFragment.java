@@ -21,7 +21,7 @@ import com.example.asus.tastenews.register.widget.RegisterFragment;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 /**
- * Created by ASUS on 2016/6/3.
+ * Created by SomeOneInTheWorld on 2016/6/3.
  */
 public class GuideFragment extends Fragment implements GuideView {
 

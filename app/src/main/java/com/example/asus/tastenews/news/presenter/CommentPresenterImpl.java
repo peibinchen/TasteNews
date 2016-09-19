@@ -15,7 +15,7 @@ import com.example.asus.tastenews.utils.LogUtils;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/8/24.
+ * Created by SomeOneInTheWorld on 2016/8/24.
  */
 public class CommentPresenterImpl implements CommentPresenter,CommentModelImpl.OnQueryCallback {
     private CommentView mView;

@@ -1,7 +1,7 @@
 package com.example.asus.tastenews.register.view;
 
 /**
- * Created by ASUS on 2016/6/4.
+ * Created by SomeOneInTheWorld on 2016/6/4.
  */
 public interface RegisterView {
     void showProgress();

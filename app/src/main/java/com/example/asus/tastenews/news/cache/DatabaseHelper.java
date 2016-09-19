@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.asus.tastenews.news.Constants;
 
 /**
- * Created by ASUS on 2016/8/11.
+ * Created by SomeOneInTheWorld on 2016/8/11.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static Context context = null;

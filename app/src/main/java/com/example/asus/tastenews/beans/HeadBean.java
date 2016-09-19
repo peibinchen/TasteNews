@@ -1,7 +1,7 @@
 package com.example.asus.tastenews.beans;
 
 /**
- * Created by ASUS on 2016/6/12.
+ * Created by SomeOneInTheWorld on 2016/6/12.
  */
 public class HeadBean {
     private String folderName;

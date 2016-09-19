@@ -1,7 +1,7 @@
 package com.example.asus.tastenews.beans;
 
 /**
- * Created by ASUS on 2016/5/29.
+ * Created by SomeOneInTheWorld on 2016/5/29.
  */
 public class WeatherBean {
 

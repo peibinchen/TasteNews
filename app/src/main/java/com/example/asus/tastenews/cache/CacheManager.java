@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 /**
- * Created by ASUS on 2016/7/19.
+ * Created by SomeOneInTheWorld on 2016/7/19.
  * 缓存管理类，这是对外的类
  * 三级缓存：第一级是内存缓存，最快；第二级是本地缓存，中等；第三级是网络缓存，最慢
  */

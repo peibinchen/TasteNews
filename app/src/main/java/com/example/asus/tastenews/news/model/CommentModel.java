@@ -5,7 +5,7 @@ import com.example.asus.tastenews.beans.QuestionTable;
 import com.example.asus.tastenews.beans.ReplyTable;
 
 /**
- * Created by ASUS on 2016/8/24.
+ * Created by SomeOneInTheWorld on 2016/8/24.
  */
 public interface CommentModel {
     void saveQuestion(QuestionTable questionTable);

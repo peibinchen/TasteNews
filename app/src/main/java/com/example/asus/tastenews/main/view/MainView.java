@@ -1,9 +1,7 @@
 package com.example.asus.tastenews.main.view;
 
-import android.os.Handler;
-
 /**
- * Created by ASUS on 2016/5/22.
+ * Created by SomeOneInTheWorld on 2016/5/22.
  */
 public interface MainView {
     void switch2News();

@@ -10,7 +10,7 @@ import com.example.asus.tastenews.utils.OkHttpUtils;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/7/17.
+ * Created by SomeOneInTheWorld on 2016/7/17.
  * 重复利用news包中的函数，用于加载网络新闻
  */
 

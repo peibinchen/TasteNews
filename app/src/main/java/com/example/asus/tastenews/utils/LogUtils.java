@@ -3,7 +3,7 @@ package com.example.asus.tastenews.utils;
 import android.util.Log;
 
 /**
- * Created by ASUS on 2016/5/24.
+ * Created by SomeOneInTheWorld on 2016/5/24.
  */
 public class LogUtils {
     public static final boolean DEBUG = true;

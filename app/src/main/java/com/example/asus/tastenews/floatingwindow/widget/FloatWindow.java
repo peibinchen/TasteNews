@@ -24,7 +24,7 @@ import com.example.asus.tastenews.ui.TagCloud.TagsAdapter;
 
 
 /**
- * Created by cpb on 2016/7/1.
+ * Created by SomeOneInTheWorld on 2016/7/1.
  * FloatWindow是一个管理类，管理floatView和playerView的转化
  * 按下返回键或ACTION_UP时playerView转化为floatView，
  * 点击floatView时会呈现出playerView，

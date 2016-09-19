@@ -8,7 +8,7 @@ import com.example.asus.tastenews.R;
 import com.example.asus.tastenews.beans.NewsBean;
 
 /**
- * Created by ASUS on 2016/8/23.
+ * Created by SomeOneInTheWorld on 2016/8/23.
  */
 public class CommentActivity extends AppCompatActivity implements BaseFragment.QuestionCallback{
     public static final int COMMENT_TYPE_ASK = 0;

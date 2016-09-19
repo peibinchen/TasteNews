@@ -5,7 +5,7 @@ import com.example.asus.tastenews.beans.NewsBean;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/25.
+ * Created by SomeOneInTheWorld on 2016/5/25.
  */
 public interface NewsView {
     void showProgress();

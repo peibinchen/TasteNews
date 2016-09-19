@@ -6,7 +6,7 @@ import com.example.asus.tastenews.beans.UserBean;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
- * Created by ASUS on 2016/6/3.
+ * Created by SomeOneInTheWorld on 2016/6/3.
  */
 public class GuideModelImpl implements GuideModel {
 

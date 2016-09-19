@@ -7,13 +7,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.util.LruCache;
 
-import com.example.asus.tastenews.images.model.ImageModelImpl;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by ASUS on 2016/6/12.
+ * Created by SomeOneInTheWorld on 2016/6/12.
  */
 public class NativeImageLoader {
     private LruCache<String,Bitmap> mCache;

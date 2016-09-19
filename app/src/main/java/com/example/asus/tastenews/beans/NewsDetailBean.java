@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/24.
+ * Created by SomeOneInTheWorld on 2016/5/24.
  */
 public class NewsDetailBean implements Serializable {
     private String docid;

@@ -43,7 +43,7 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 /**
- * Created by ASUS on 2016/5/28.
+ * Created by SomeOneInTheWorld on 2016/5/28.
  */
 public class NewsDetailActivity extends SwipeBackActivity implements NewsDetailView ,View.OnClickListener{
 

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
- * Created by ASUS on 2016/6/12.
+ * Created by SomeOneInTheWorld on 2016/6/12.
  */
 public class MyImageView extends ImageView {
     private OnMeasureListener listener;

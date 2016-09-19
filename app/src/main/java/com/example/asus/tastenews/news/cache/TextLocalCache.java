@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/8/11.
+ * Created by SomeOneInTheWorld on 2016/8/11.
  */
 public class TextLocalCache {
     private DatabaseHelper mDatabaseHelper;

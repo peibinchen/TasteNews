@@ -1,8 +1,6 @@
 package com.example.asus.tastenews.beans;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class Result {

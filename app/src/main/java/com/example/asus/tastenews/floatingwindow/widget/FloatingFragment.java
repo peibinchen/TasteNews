@@ -17,7 +17,7 @@ import com.example.asus.tastenews.R;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 /**
- * Created by ASUS on 2016/7/1.
+ * Created by SomeOneInTheWorld on 2016/7/1.
  */
 public class FloatingFragment extends Fragment {
 

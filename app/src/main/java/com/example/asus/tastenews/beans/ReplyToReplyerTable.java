@@ -3,7 +3,7 @@ package com.example.asus.tastenews.beans;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by ASUS on 2016/8/22.
+ * Created by SomeOneInTheWorld on 2016/8/22.
  */
 public class ReplyToReplyerTable extends BmobObject{
     private ReplyTable replyId;

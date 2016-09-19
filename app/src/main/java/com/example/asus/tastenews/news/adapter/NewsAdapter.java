@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/5/26.
+ * Created by SomeOneInTheWorld on 2016/5/26.
  */
 public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private final String TAG = "NewsTestAdapter";

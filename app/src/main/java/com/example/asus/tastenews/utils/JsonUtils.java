@@ -7,7 +7,7 @@ import com.google.gson.JsonSyntaxException;
 import java.lang.reflect.Type;
 
 /**
- * Created by ASUS on 2016/5/24.
+ * Created by SomeOneInTheWorld on 2016/5/24.
  */
 public class JsonUtils {
     public static Gson mGson = new Gson();

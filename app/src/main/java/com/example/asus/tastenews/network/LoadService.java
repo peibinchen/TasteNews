@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 /**
- * Created by ASUS on 2016/7/29.
+ * Created by SomeOneInTheWorld on 2016/7/29.
  */
 public interface LoadService {
     @GET("query")

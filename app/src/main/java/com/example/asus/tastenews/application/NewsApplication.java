@@ -7,7 +7,7 @@ import android.support.multidex.MultiDex;
 import com.example.asus.tastenews.utils.LogUtils;
 
 /**
- * Created by ASUS on 2016/6/6.
+ * Created by SomeOneInTheWorld on 2016/6/6.
  */
 public class NewsApplication extends Application {
     private static Context newsContext;

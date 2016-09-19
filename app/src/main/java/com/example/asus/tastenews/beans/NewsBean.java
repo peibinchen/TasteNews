@@ -5,7 +5,7 @@ import java.io.Serializable;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by ASUS on 2016/5/24.
+ * Created by SomeOneInTheWorld on 2016/5/24.
  */
 public class NewsBean extends BmobObject implements Serializable {
     private String docid;//docid

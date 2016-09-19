@@ -1,7 +1,7 @@
 package com.example.asus.tastenews.news;
 
 /**
- * Created by ASUS on 2016/8/9.
+ * Created by SomeOneInTheWorld on 2016/8/9.
  */
 public class Constants {
     public static final int MESSAGE_READ = 1;

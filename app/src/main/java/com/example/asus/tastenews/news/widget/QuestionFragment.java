@@ -17,7 +17,7 @@ import com.github.clans.fab.FloatingActionButton;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
- * Created by ASUS on 2016/8/23.
+ * Created by SomeOneInTheWorld on 2016/8/23.
  */
 public class QuestionFragment extends BaseFragment {
     private MaterialEditText mMainQuestionET;

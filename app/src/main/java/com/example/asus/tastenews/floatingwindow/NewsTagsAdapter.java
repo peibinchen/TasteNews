@@ -3,26 +3,20 @@ package com.example.asus.tastenews.floatingwindow;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.asus.tastenews.application.NewsApplication;
 import com.example.asus.tastenews.beans.NewsBean;
-import com.example.asus.tastenews.news.widget.NewsDetailActivity;
 import com.example.asus.tastenews.ui.TagCloud.TagsAdapter;
-import com.example.asus.tastenews.utils.LogUtils;
 
 import java.util.ArrayList;
-
 import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by ASUS on 2016/8/15.
+ * Created by SomeOneInTheWorld on 2016/8/15.
  */
 public class NewsTagsAdapter extends TagsAdapter {
     private List<String> dataSet = new ArrayList<>();
