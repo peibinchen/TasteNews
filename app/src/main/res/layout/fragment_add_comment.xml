@@ -47,6 +47,6 @@
         fancy:fb_iconPosition="right"
         fancy:fb_radius="0dp"
         fancy:fb_text="提交"
-        fancy:fb_textColor="#ffffff"
+        fancy:fb_textColor="#0066f4"
         fancy:fb_ghost="true"/>
 </LinearLayout>
