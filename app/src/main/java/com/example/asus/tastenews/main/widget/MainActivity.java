@@ -21,7 +21,6 @@ import com.example.asus.tastenews.main.view.MainView;
 import com.example.asus.tastenews.news.widget.NewsFragment;
 import com.example.asus.tastenews.utils.LogUtils;
 import com.example.asus.tastenews.utils.SpeechRecognitionUtils.SpeechRecognitionUtils;
-import com.example.asus.tastenews.weather.widget.WeatherFragment;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.sunflower.FlowerCollector;
@@ -96,10 +95,6 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
         }
         if(result.contains("汽车")||result.contains("汽")||result.contains("车")){
             switch2Cars();
-            return;
-        }
-        if(result.contains("天气")||result.contains("天")||result.contains("气")){
-            switch2Weather();
             return;
         }
         if(result.contains("图片")||result.contains("图")||result.contains("片")){
@@ -237,13 +232,6 @@ public class MainActivity extends AppCompatActivity implements MainView,SpeechRe
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_content,new ImageFragment()).commit();
         mToolbar.setTitle(getString(R.string.navigation_images));
-    }
-
-    @Override
-    public void switch2Weather(){
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_content,new WeatherFragment()).commit();
-        mToolbar.setTitle(getString(R.string.navigation_weather));
     }
 
     @Override

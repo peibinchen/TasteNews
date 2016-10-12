@@ -9,10 +9,6 @@
             android:icon="@mipmap/ic_assessment_white_24dp"
             android:title="@string/navigation_news"/>
         <item
-            android:id="@+id/navigation_item_weather"
-            android:icon="@mipmap/ic_date_range_white_24dp"
-            android:title="@string/navigation_weather"/>
-        <item
             android:id="@+id/navigation_item_images"
             android:icon="@mipmap/ic_image_white_24dp"
             android:title="@string/navigation_images"/>
