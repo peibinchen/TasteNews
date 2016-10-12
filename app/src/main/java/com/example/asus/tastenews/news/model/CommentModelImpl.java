@@ -191,27 +191,4 @@ public class CommentModelImpl implements CommentModel {
             }
         });
     }
-
-    public interface OnQueryCallback{
-        void onQuestionSaveSuccess();
-        void onQuestionSaveFailure(int errorCode,String message);
-
-        void onQuestionQuerySuccess(List<QuestionTable> list);
-        void onQuestionQueryFailure(int errorCode,String message);
-
-        void onReplyQuerySuccess(List<ReplyTable>list);
-        void onReplyQueryFailure(int errorCode,String message);
-
-        void onReply2ReplyerQuerySuccess(List<ReplyToReplyerTable>list);
-        void onReply2ReplyerQueryFailure(int errorCode,String message);
-
-        void onQueryNewsBeanSuccess(NewsBean bean);
-        void onQueryNewsBeanFailure(String message);
-
-        void onSaveNewsBeanSuccess(NewsBean bean);
-        void onSaveNewsBeanFailure(int errorCode,String message);
-
-        void onSaveQuestionAnswerSuccess();
-        void onSaveQuestionAnswerFailure(int errorCode,String message);
-    }
 }

@@ -83,5 +83,4 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile files('libs/Msc.jar')
     compile files('libs/Sunflower.jar')
-    compile files('libs/AMap_Location_V2.7.0_20160726.jar')
 }
